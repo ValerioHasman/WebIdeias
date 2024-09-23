@@ -12,10 +12,9 @@ for (let conteudovp of conteudovps) {
 }
 
 const tela = document.querySelector(".tela");
-tela.addEventListener("scrollend", rodarVideoVigente);
+tela.addEventListener("scrollend", verificaParaBuscar);
 
 function rodarVideoVigente() {
-  console.log("rodarVideoVigente");
   for (let video of videos) {
     const posicoesVideo = video.getBoundingClientRect();
     if ((posicoesVideo.x == 0) && (posicoesVideo.y == 0)) {
@@ -35,4 +34,15 @@ function playPause({ target: video }) {
   } else {
     video.pause();
   }
+}
+
+/** 
+ * @param {Event} event 
+ * @param {Element} event.target 
+ */
+function verificaParaBuscar(){
+  if(tela.clientHeight == tela.scrollTop){
+    // adicione
+  }
+  rodarVideoVigente();
 }
