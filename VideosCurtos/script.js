@@ -46,7 +46,7 @@ function verificaParaBuscar() {
       soma: tela.clientHeight + tela.scrollTop
     }
   );
-  if (tela.clientHeight + tela.scrollTop == tela.scrollHeight) {
+  if (tela.clientHeight + tela.scrollTop >= tela.scrollHeight) {
     adcionaVideo();
   }
   rodarVideoVigente();
