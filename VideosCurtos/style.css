@@ -17,7 +17,8 @@ body {
 }
 
 .ss-item {
-  scroll-snap-align: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .tela {
@@ -45,13 +46,13 @@ body {
 
 .perfil {
   overflow: auto;
-  background-image: linear-gradient(rgb(89, 94, 106), rgb(152, 176, 198));
   overscroll-behavior-y: contain;
 }
 
 .conteudoperfil {
   height: 500%;
   background-image: url(./fundo.jpg);
+  background-size: contain;
 }
 
 video {
