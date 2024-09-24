@@ -34,6 +34,18 @@ function playPause({ target: video }) {
  * @param {Element} event.target 
  */
 function verificaParaBuscar() {
+  console.log(
+    {
+      tela,
+      clientTop: tela.clientTop,
+      clientHeight: tela.clientHeight,
+      scrollTop: tela.scrollTop,
+      scrollHeight: tela.scrollHeight,
+      offsetHeight: tela.offsetHeight,
+      offsetTop: tela.offsetTop,
+      soma: tela.clientHeight + tela.scrollTop
+    }
+  );
   if (tela.clientHeight + tela.scrollTop == tela.scrollHeight) {
     adcionaVideo();
   }
