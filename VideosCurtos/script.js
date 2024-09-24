@@ -1,18 +1,11 @@
 const videos = document.getElementsByTagName("video");
 const conteudovps = document.getElementsByClassName("conteudovp");
 
-// define controles
-for (let conteudovp of conteudovps) {
-  const video = conteudovp.querySelector("video");
-  video.addEventListener("contextmenu", (event) => { event.preventDefault(); });
-  video.addEventListener("play", rodarVideoVigente);
-  video.addEventListener("click", playPause);
-  video.addEventListener("touchend", playPause);
-  conteudovp.addEventListener("scrollend", rodarVideoVigente);
-}
-
 const tela = document.querySelector(".tela");
 tela.addEventListener("scrollend", verificaParaBuscar);
+
+adcionaVideo();
+adcionaVideo();
 
 function rodarVideoVigente() {
   for (let video of videos) {
@@ -40,9 +33,39 @@ function playPause({ target: video }) {
  * @param {Event} event 
  * @param {Element} event.target 
  */
-function verificaParaBuscar(){
-  if(tela.clientHeight == tela.scrollTop){
-    // adicione
+function verificaParaBuscar() {
+  if (tela.clientHeight + tela.scrollTop == tela.scrollHeight) {
+    adcionaVideo();
   }
   rodarVideoVigente();
+}
+
+function adcionaVideo() {
+  tela.insertAdjacentHTML(
+    "beforeend",
+    `
+<div class="conteudovp ss-item ss-container-x">
+  <div class="video ss-item">
+    <video
+    src="v${videos.length % 2 == 0 ? "0" : "1"}.mp4"
+    controls
+    controlslist="nofullscreen nodownload noplaybackrate"
+    disablepictureinpicture
+    disableremoteplayback
+    loop
+    playsinline
+    ></video>
+  </div>
+  <div class="perfil ss-item">
+    <div class="conteudoperfil"></div>
+  </div>
+</div>
+
+`);
+  const video = videos[videos.length - 1]
+  video.addEventListener("contextmenu", (event) => { event.preventDefault(); });
+  video.addEventListener("play", rodarVideoVigente);
+  video.addEventListener("click", playPause);
+  video.addEventListener("touchend", playPause);
+  conteudovps[conteudovps.length - 1].addEventListener("scrollend", rodarVideoVigente);
 }
