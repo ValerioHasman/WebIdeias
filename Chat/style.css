@@ -1,0 +1,42 @@
+.chat {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+#cabeca {
+  flex-grow: 0;
+}
+
+#conteudo {
+  overscroll-behavior-y: contain;
+  overflow: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#form {
+  flex-grow: 0;
+}
+
+#conteudo p {
+  background-color: aqua;
+  width: fit-content;
+  max-width: 75%;
+  margin: 0.8em 1em 0.2em 0;
+  padding: 1em;
+  border-radius: 1em;
+  align-self: flex-end;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+textarea {
+  resize: none;
+}
+
+[alt="Ícone"] {
+  width: 1.5em;
+}
