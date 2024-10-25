@@ -1,0 +1,32 @@
+@import url(navegacao.css);
+
+:root {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  color: black;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: background-color .4s cubic-bezier(0, -1, 0, 0);
+  display: block;
+  padding: 1rem;
+}
+
+a:active {
+  background-color: rgba(128, 128, 128, 0.25);
+  transition: none;
+}

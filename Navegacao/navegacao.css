@@ -1,0 +1,40 @@
+:root {
+  --tempo-geral-animacao: .3s;
+  --animacao-retorno: 0s linear var(--tempo-geral-animacao);
+  --animacao-ida: var(--tempo-geral-animacao) ease-in-out;
+  --retorno: left var(--animacao-retorno), visibility var(--animacao-retorno);
+  --ida: left var(--animacao-ida), visibility var(--animacao-ida);
+}
+
+.section {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  width: 100%;
+  overflow: auto;
+  background-color: white;
+  box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.15);
+
+  visibility: hidden;
+  left: 100%;
+  transition: var(--retorno);
+}
+
+.section:target {
+  z-index: 1;
+  visibility: visible;
+  left: 0;
+  transition: var(--ida);
+}
+
+.section:first-child {
+  visibility: visible;
+  left: 0;
+}
+
+.main:has(.section:nth-child(n+2):is(:target)) .section:first-child {
+  visibility: hidden;
+  left: 100%;
+}
