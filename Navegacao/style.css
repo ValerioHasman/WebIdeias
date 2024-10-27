@@ -1,9 +1,5 @@
 @import url(navegacao.css);
 
-:root {
-  scroll-behavior: smooth;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -13,6 +9,28 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  overscroll-behavior-y: contain;
+}
+
+section {
+  scroll-behavior: smooth;
+  background-color: rgba(255, 255, 255, 0.062);
+  box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.15);
+}
+section > div {
+  padding: 1rem;
+}
+
+@media (min-width: 800px) {
+  section {
+    width: 60% !important;
+    margin: auto;
+  }
+}
+
+code {
+  font-size: 1rem;
 }
 
 a {
@@ -26,7 +44,11 @@ a {
   padding: 1rem;
 }
 
+a:focus {
+  background-color: rgba(0, 0, 255, 0.072);
+}
+
 a:active {
-  background-color: rgba(128, 128, 128, 0.25);
+  background-color: rgba(0, 255, 0, 0.1);
   transition: none;
 }

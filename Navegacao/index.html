@@ -10,65 +10,93 @@
 </head>
 <body>
 <main class="main">
-  <section class="section" id="1">
-    <h2>Seção 1</h2>
-    <a href="#2">
-      <h3>Ir até a segunda seção</h3>
-      <p>É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação.</p>
-    </a>
-    <a href="#3">
-      <h3>Seguir para a terceira página</h3>
-      <p>Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico.</p>
-    </a>
-    <a href="#4">
-      <h3>Ir para última página</h3>
-      <p>Existem muitas variações disponíveis de passagens de Lorem Ipsum</p>
-    </a>
+  <section class="section">
+    <div id="tela1">
+      <h2>Seção 1</h2>
+      <p>Este site usa rotas por hash e CSS, você não leu errado! É com CSS mesmo. Isso é possível por causa da
+        pseudo-classe <code>:target</code> que faz referência ao elemento com o mesmo nome o valor após a hash na URL.</p>
+      <p>A tela será exibida com a animação quando a hash estiver referenciando ela ou um elemento dela.</p>
+      <a href="#exemploUm">
+        <h3>Focar no link da tela 4</h3>
+        <p>Ao fazer referência na hash para um elemento visível ele será focado</p>
+      </a>
+      <a href="#tela2">
+        <h3>Tela 2</h3>
+        <p>Você irá à segunda página.</p>
+      </a>
+      <a href="#tela3">
+        <h3>Tela 3</h3>
+        <p>Você irá à terceira página.</p>
+      </a>
+      <a href="#tela4" id="exemploUm">
+        <h3>Tela 4</h3>
+        <p>Você irá à quarta página com o fim da explicação.</p>
+      </a>
+    </div>
   </section>
-  <section class="section" id="2">
-    <h2>Seção 2</h2>
-    <a href="#1">
-      <h3>Ir para o começo</h3>
-      <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos.</p>
-    </a>
-    <a href="#3">
-      <h3>Seguir para a terceira página</h3>
-      <p>Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico.</p>
-    </a>
-    <a href="#4">
-      <h3>Ir para última página</h3>
-      <p>Existem muitas variações disponíveis de passagens de Lorem Ipsum</p>
-    </a>
+  <section class="section">
+    <div id="tela2">
+      <h2>Seção 2</h2>
+      <a href="#tela1">
+        <h3>Tela 1</h3>
+        <p>Início</p>
+      </a>
+      <a href="#tela3" id="exemploDois">
+        <h3>Tela 3</h3>
+        <p>Navegar.</p>
+      </a>
+      <a href="#tela4">
+        <h3>Tela 4</h3>
+        <p>Final</p>
+      </a>
+      <a href="#exemploDois">
+        <h3>Focar no segundo elemento</h3>
+        <p>…</p>
+      </a>
+    </div>
   </section>
-  <section class="section" id="3">
-    <h2>Seção 3</h2>
-    <a href="#1">
-      <h3>Ir para o começo</h3>
-      <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos.</p>
-    </a>
-    <a href="#2">
-      <h3>Ir até a segunda seção</h3>
-      <p>É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação.</p>
-    </a>
-    <a href="#4">
-      <h3>Ir para última página</h3>
-      <p>Existem muitas variações disponíveis de passagens de Lorem Ipsum</p>
-    </a>
+  <section class="section">
+    <div id="tela3">
+      <h2>Seção 3</h2>
+      <a href="#tela1">
+        <h3>Tela 1</h3>
+        <p>Início</p>
+      </a>
+      <a href="#tela2">
+        <h3>Tela 2</h3>
+        <p>Navegar</p>
+      </a>
+      <a href="#tela4">
+        <h3>Tela 4</h3>
+        <p>Final</p>
+      </a>
+      <a href="#exemploQuatro" id="exemploTres">
+        <h3>Focar no link da tela 3 da tela 4</h3>
+        <p>O item não será focado, mas será mostrado imediatamente na tela. Para ele ser focado propriedade
+          <code>visibility</code> da classe <code>.section</code> deve ser definida como <code>visible</code> sempre.</p>
+      </a>
+    </div>
   </section>
-  <section class="section" id="4">
-    <h2>Seção 4</h2>
-    <a href="#1">
-      <h3>Ir para o começo</h3>
-      <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos.</p>
-    </a>
-    <a href="#2">
-      <h3>Ir até a segunda seção</h3>
-      <p>É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação.</p>
-    </a>
-    <a href="#3">
-      <h3>Seguir para a terceira página</h3>
-      <p>Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico.</p>
-    </a>
+  <section class="section">
+    <div id="tela4">
+      <div style="min-height: 75vh;">
+        <h2>Seção 4</h2>
+        <p>Folha de estilo responsável pelo efeito e funcionamento das rotas:</p>
+        <a href="./navegacao.css" style="display: inline-block;"><code>navegacao.css</code></a>
+      </div>
+      <a href="#tela1">
+        <h3>Tela 1</h3>
+        <p>…</p>
+      </a>
+      <a href="#tela2">
+        <h3>Tela 2</h3>
+        <p>…</p>
+      </a>
+      <a href="#exemploTres" id="exemploQuatro">
+        <h3>Tela 3</h3>
+        <p>Explicação do foco nos itens das páginas.</p>
+      </a>
+    </div>
   </section>
 </main>
 </body>

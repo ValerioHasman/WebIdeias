@@ -1,14 +1,19 @@
-// const inicio = history.length;
-// let ultimoNivel = inicio;
+const inicio = history.length;
+let ultimoNivel = inicio;
 
-// function verificaRetorno() {
+function verificaRetorno(event) {
+  console.log(event);
+  agora();
+  if (ultimoNivel == history.length) {
+    //history.go(-(history.length - (inicio)));
+  } else {
+    ultimoNivel = history.length;
+  }
+}
 
-//   console.log(history.length);
-//   if (ultimoNivel == history.length) {
-//     console.log(ultimoNivel, history.length);
-//     history.go(-1 * (history.length - (inicio - 1)));
-//   }
-//   ultimoNivel = history.length;
-// }
+window.addEventListener("popstate", verificaRetorno);
+agora();
 
-// window.addEventListener("popstate", verificaRetorno);
+function agora() {
+  console.log(inicio, ultimoNivel, history.length);
+}

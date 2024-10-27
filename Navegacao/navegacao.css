@@ -1,9 +1,14 @@
+/*!
+ * Valério Luz Hasman Junior (https://www.linkedin.com/in/valerio-hasman/)
+ * Licenciado sob MIT
+ */
+
 :root {
-  --tempo-geral-animacao: .3s;
-  --animacao-retorno: 0s linear var(--tempo-geral-animacao);
-  --animacao-ida: var(--tempo-geral-animacao) ease-in-out;
-  --retorno: left var(--animacao-retorno), visibility var(--animacao-retorno);
-  --ida: left var(--animacao-ida), visibility var(--animacao-ida);
+  --tempo-geral-animacao: 0.3s;
+  --animacao-fechar: 0s linear var(--tempo-geral-animacao);
+  --animacao-abrir: var(--tempo-geral-animacao) ease-in-out;
+  --fechar: opacity var(--animacao-abrir), left var(--animacao-fechar), visibility var(--animacao-fechar);
+  --abrir: left var(--animacao-abrir), visibility var(--animacao-abrir);
 }
 
 .section {
@@ -11,30 +16,26 @@
   top: 0;
   bottom: 0;
   right: 0;
-  padding: 1rem;
   width: 100%;
   overflow: auto;
-  background-color: white;
-  box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.15);
+}
 
+.section,
+.main:has(.section:nth-child(n+2):is(:target)) .section:first-child,
+.main:has(.section:nth-child(n+2) *:is(:target)) .section:first-child {
+  z-index: 0;
+  opacity: 0;
   visibility: hidden;
   left: 100%;
-  transition: var(--retorno);
+  transition: var(--fechar);
 }
 
-.section:target {
-  z-index: 1;
-  visibility: visible;
-  left: 0;
-  transition: var(--ida);
-}
-
+.section:target,
+.section:has(*:target),
 .section:first-child {
+  z-index: 1;
+  opacity: 1;
   visibility: visible;
   left: 0;
-}
-
-.main:has(.section:nth-child(n+2):is(:target)) .section:first-child {
-  visibility: hidden;
-  left: 100%;
+  transition: var(--abrir);
 }
