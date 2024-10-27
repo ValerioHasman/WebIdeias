@@ -1,19 +1,26 @@
 const inicio = history.length;
-let ultimoNivel = inicio;
+let avancos = 0;
 
+/** @param {PopStateEvent} event */
 function verificaRetorno(event) {
-  console.log(event);
+  console.info('');
   agora();
-  if (ultimoNivel == history.length) {
-    //history.go(-(history.length - (inicio)));
+  /** @type {{nivel;hash}} */
+  const pagina = history.state;
+  avancos++;
+  if (pagina?.nivel && pagina?.nivel !== null) {
+    history.go(-pagina.nivel);
   } else {
-    ultimoNivel = history.length;
+    history.replaceState({ nivel: avancos }, null, null);
   }
+  avancos = history.state.nivel;
+  agora();
 }
 
+window.history.replaceState({ nivel: avancos }, null, null);
 window.addEventListener("popstate", verificaRetorno);
 agora();
 
 function agora() {
-  console.log(inicio, ultimoNivel, history.length);
+  console.log(avancos, history.length, history.state);
 }
