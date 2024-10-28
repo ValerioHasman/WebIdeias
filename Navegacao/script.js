@@ -1,26 +1,22 @@
-const inicio = history.length;
+/** @type {{nivel;hash}} */
+const pagina = { nivel: 0 };
 let avancos = 0;
+let ultimaHash = "";
 
 /** @param {PopStateEvent} event */
 function verificaRetorno(event) {
-  console.info('');
-  agora();
-  /** @type {{nivel;hash}} */
-  const pagina = history.state;
-  avancos++;
-  if (pagina?.nivel && pagina?.nivel !== null) {
-    history.go(-pagina.nivel);
+  pagina.nivel = history.state?.nivel;
+  if (pagina?.nivel != null) {
+    if (pagina.nivel > 0 && ultimaHash != location.hash) {
+      history.go(-pagina.nivel);
+      avancos = 0;
+    }
   } else {
+    avancos++;
     history.replaceState({ nivel: avancos }, null, null);
   }
-  avancos = history.state.nivel;
-  agora();
+  ultimaHash = location.hash;
 }
 
-window.history.replaceState({ nivel: avancos }, null, null);
+window.history.replaceState(pagina, null, null);
 window.addEventListener("popstate", verificaRetorno);
-agora();
-
-function agora() {
-  console.log(avancos, history.length, history.state);
-}
