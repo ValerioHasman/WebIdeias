@@ -6,5 +6,6 @@ import NReact from "../../NReact.js";
  */
 export default function Section(props = {}, ...list) {
   const section = NReact("pre", props, list);
+  section.classList.add("container-fluid", "py-3");
   return section;
 }

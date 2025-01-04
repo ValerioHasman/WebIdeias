@@ -1,41 +1,76 @@
 import NReact from "../NReact.js";
+import Button from "./componentes/Button.js";
+import Div from "./componentes/Div.js";
+import Form from "./componentes/Form.js";
 import Input from "./componentes/Input.js";
+import Titulo from "./componentes/Titulo.js";
 import Header from "./painel/Header.js";
 import Section from "./painel/Section.js";
 
-let intervalo = 3000;
+document.body.append(Div({},
+  Titulo({}, "CaracAll"),
+  Header({},
+    Form({ className: "was-validated", firstChild: { className: "row g-2" }, onsubmit: recalcular },
+      Input({
+        name: "inicio",
+        inputMode: "numeric",
+        type: "number",
+        value: "120000",
+        placeholder: "Iníciar em…",
+        max: 1114111,
+        min: 0,
+        required: true,
+      }),
+      Input({
+        name: "intervalo",
+        inputMode: "numeric",
+        type: "number",
+        value: "3000",
+        placeholder: "Intervalo de…",
+        max: 10000,
+        min: 0,
+        required: true,
+      }),
+      Button({
+        className: "btn-secondary",
+        type: "submit",
+        id: "enviar"
+      }, "Exibir"),
+      Button({
+        onclick: remover,
+        className: "btn-secondary",
+        type: "button"
+      }, "Limpar")
+    ),
+  ),
+  Section({ style: { tabSize: 12, whiteSpace: "pre-wrap" }, id: "container" })
+));
 
-const menu = Header({},
-  Input({
-    inputMode: "numeric",
-    type: "number",
-    onchange: function () {
-      exibir(this.value);
-    }
-  }),
-  Input({
-    inputMode: "numeric",
-    type: "number",
-    onchange: function () {
-      intervalo = Number.parseInt(this.value);
-    }
-  }),
-  NReact("button", { onclick: remover }, "Limpar!")
-);
 
-const container = Section({ style: { tabSize: 12, whiteSpace: "pre-wrap" } });
+/** @param {PointerEvent} event */
+function recalcular(event) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  event.target.firstChild.disabled = true;
+  setTimeout(() => {
+    exibir(formData.get("inicio"), formData.get("intervalo"));
+    event.target.firstChild.disabled = false;  
+  }, 100);
+}
 
-exibir();
+FormData
 
-function exibir(next = 0) {
+function exibir(next = 0, intervalo = 0) {
   next = Number.parseInt(next);
+  intervalo = Number.parseInt(intervalo);
   remover();
-  for (let i = next; i <= (next + intervalo); i++) {
+  for (let i = next; i <= (next + intervalo) && i < 1114112; i++) {
     container.append(
       `${i}: ${String.fromCodePoint(i)}\t`
     )
   }
 }
+
 
 function remover() {
   for (const text of container.childNodes) {
@@ -46,5 +81,4 @@ function remover() {
   }
 }
 
-document.body.append(menu);
-document.body.append(container);
+enviar.click();
