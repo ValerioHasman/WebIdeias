@@ -3,6 +3,7 @@ import Button from "./componentes/Button.js";
 import Div from "./componentes/Div.js";
 import Form from "./componentes/Form.js";
 import Input from "./componentes/Input.js";
+import InputGroup from "./componentes/InputGroup.js";
 import Titulo from "./componentes/Titulo.js";
 import Header from "./painel/Header.js";
 import Section from "./painel/Section.js";
@@ -11,7 +12,8 @@ document.body.append(Div({},
   Titulo({}, "CaracAll"),
   Header({},
     Form({ className: "was-validated", firstChild: { className: "row g-2" }, onsubmit: recalcular },
-      Input({
+      InputGroup({
+        id: "inpQuantidade",
         name: "inicio",
         inputMode: "numeric",
         type: "number",
@@ -22,12 +24,13 @@ document.body.append(Div({},
         required: true,
       }),
       Input({
+        id: "inpIntervalo",
         name: "intervalo",
         inputMode: "numeric",
         type: "number",
         value: "3000",
         placeholder: "Intervalo de…",
-        max: 10000,
+        max: 1114111,
         min: 0,
         required: true,
       }),

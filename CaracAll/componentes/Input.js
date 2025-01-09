@@ -7,6 +7,6 @@ import Div from "./Div.js";
  */
 export default function Input(props = {}, ...list) {
   const input = Div({ className: "col-md col-6" }, NReact("input", props, list));
-  input.firstChild.classList.add("form-control", "was-validated");
+  input.firstChild.classList.add("form-control");
   return input;
 }
