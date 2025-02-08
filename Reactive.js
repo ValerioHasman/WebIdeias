@@ -12,8 +12,8 @@ function NReact(tagName, props = {}, nodulo = []) {
 }
 
 /**
- * @param {HTMLElement} props1 - 1, quem recebe
- * @param {HTMLElement} props2 - 2, quem doa
+ * @param {Partial<HTMLElement>} props1 - 1, quem recebe
+ * @param {Partial<HTMLElement>} props2 - 2, quem doa
  */
 function atriburir(props1 = this, props2) {
   for (const prop in props2) {
@@ -38,6 +38,13 @@ function Urli(caminho = "", raiz = null) {
   const arr = (import.meta.url).split("/");
   arr.pop();
   return arr.join("/") + caminho;
+}
+
+function fragmento(arr, cps) {
+  console.log(cps);
+  console.log(cps());
+  // criar um fragment
+  return "nada";
 }
 
 /**
@@ -155,6 +162,7 @@ function Urli(caminho = "", raiz = null) {
  * @property {(propriedades: Partial<HTMLVideoElement>, ...nodulo: (Node | string)[]) => HTMLVideoElement} video
  * @property {(propriedades: Partial<HTMLElement>, ...nodulo: (Node | string)[]) => HTMLElement} wbr
  * @property {(caminho: string, raiz: string) => string} Urli
+ * @property {(props1: Partial<HTMLElement>, props2: Partial<HTMLElement>) => string} atriburir
 */
 
 /** @type {R} */
@@ -162,6 +170,9 @@ const R = new Proxy({}, {
   get: (obj, tagName) => {
     if(tagName === "Urli"){
       return Urli;
+    }
+    if(tagName === "atriburir"){
+      return atriburir;
     }
     return (propriedades, ...nodulo) => {
       return NReact(tagName, propriedades, nodulo);

@@ -1,0 +1,14 @@
+{
+  "name": "PopK-e",
+  "short_name": "PopK-e",
+  "start_url": "/",
+  "display": "fullscreen",
+  "icons": [
+      {
+          "type": "image/png",
+          "src": "./favicon.png",
+          "sizes": "512x512",
+          "purpose": "any maskable"
+      }
+  ]
+}

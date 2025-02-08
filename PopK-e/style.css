@@ -1,0 +1,50 @@
+:root,
+[data-bs-theme=light] {
+  --bs-body-bg: #FFBFF2;
+  --bs-body-bg-rgb: 255, 191, 242;
+}
+
+[data-bs-theme=dark] {
+  --bs-body-bg: #56002F;
+  --bs-body-bg-rgb: 86, 0, 47;
+}
+
+body {
+  overscroll-behavior-y: contain;
+}
+
+.h100vh{
+  height: 100vh;
+  height: 100dvh;
+}
+
+.tela{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.jogo{
+  column-gap: 3vw;
+  row-gap: 1rem;
+  animation: gaping 2s infinite alternate linear;
+}
+
+@keyframes gaping {
+  from{
+    column-gap: 1vw;
+  }
+  to{
+    column-gap: 30vw;
+  }
+}
+
+.botao {
+  width: calc((20vw + 20vh) / 2);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
