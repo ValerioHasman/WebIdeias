@@ -11,14 +11,15 @@
 
 body {
   overscroll-behavior-y: contain;
+  user-select: none;
 }
 
-.h100vh{
+.h100vh {
   height: 100vh;
   height: 100dvh;
 }
 
-.tela{
+.tela {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -28,17 +29,18 @@ body {
   flex-grow: 1;
 }
 
-.jogo{
+.jogo {
   column-gap: 3vw;
   row-gap: 1rem;
   animation: gaping 2s infinite alternate linear;
 }
 
 @keyframes gaping {
-  from{
+  from {
     column-gap: 1vw;
   }
-  to{
+
+  to {
     column-gap: 30vw;
   }
 }
@@ -47,4 +49,16 @@ body {
   width: calc((20vw + 20vh) / 2);
   aspect-ratio: 1/1;
   border-radius: 50%;
+  --bs-btn-active-bg: #ffff00;
+}
+
+.botao:hover {
+  color: var(--bs-btn-color);
+  background-color: var(--bs-btn-bg);
+}
+
+.botao:active {
+  background-color: var(--bs-btn-active-bg);
+  box-shadow: 0 0 1rem 1rem var(--bs-btn-active-bg) !important;
+  transition: 0s all;
 }
