@@ -3,7 +3,7 @@ import _ from "../../Reactive.js";
 export default function Botao(prop) {
   const button = _.button({
     className: "botao btn btn-primary border-0 col-auto shadow",
-    ontouchstart: RandSom
+    ...onTocado(RandSom)
   });
   button.style.setProperty('--bs-btn-bg', rgb());
   button.style.setProperty('--bs-btn-bg', rgb());
@@ -20,7 +20,7 @@ function rgb() {
 
 function RandNum(inicio = 100, fim = 200) {
   let numrand = Number.parseInt(Math.random() * (fim + 1));
-  if(numrand < inicio){
+  if (numrand < inicio) {
     numrand = RandNum(inicio, fim);
   }
   return numrand;
@@ -35,5 +35,13 @@ const audios = [
 ]
 
 function RandSom() {
-  audios[RandNum(0,4)].play();
+  audios[RandNum(0, 4)].play();
+}
+
+/** @param {function} func */
+function onTocado(func) {
+  if ('ontouchstart' in window) {
+    return { ontouchstart: func }
+  }
+  return { onmousedown: func }
 }

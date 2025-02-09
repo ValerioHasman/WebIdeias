@@ -1,0 +1,52 @@
+dialog {
+  border-radius: 1rem;
+  border: none;
+  width: 100%;
+  max-width: 90%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  scale: 0.9;
+  transition: all 0.25s;
+  transition: all 0.25s allow-discrete;
+}
+
+dialog[open] {
+  opacity: 1;
+  scale: 1;
+}
+
+dialog::backdrop {
+  backdrop-filter: none;
+  background: transparent;
+  transition: all 0.25s;
+  transition: all 0.25s allow-discrete ease-out;
+}
+
+dialog[open]::backdrop {
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    scale: 0.8;
+  }
+
+  dialog[open]::backdrop {
+    backdrop-filter: none;
+    background: transparent;
+  }
+}
+
+@media (min-width: 768px) {
+  dialog {
+    max-width: 60%;
+  }
+}
+
+@media (min-width: 1200px) {
+  dialog {
+    max-width: 40%;
+  }
+}

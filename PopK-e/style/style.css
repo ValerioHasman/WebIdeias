@@ -1,3 +1,6 @@
+@import url(button.css);
+@import url(dialog.css);
+
 :root,
 [data-bs-theme=light] {
   --bs-body-bg: #FFBFF2;
@@ -9,7 +12,8 @@
   --bs-body-bg-rgb: 86, 0, 47;
 }
 
-body {
+body,
+dialog {
   overscroll-behavior-y: contain;
   user-select: none;
 }
@@ -32,7 +36,7 @@ body {
 .jogo {
   column-gap: 3vw;
   row-gap: 1rem;
-  animation: gaping 2s infinite alternate linear;
+  /* animation: gaping 2s infinite alternate linear; */
 }
 
 @keyframes gaping {
@@ -61,4 +65,36 @@ body {
   background-color: var(--bs-btn-active-bg);
   box-shadow: 0 0 1rem 1rem var(--bs-btn-active-bg) !important;
   transition: 0s all;
+}
+
+.telaDePreferencia {
+  background-color: violet;
+}
+
+.telaIniciar {
+  background-color: violet;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+
+.telaIniciar img {
+  width: calc((40% + 40%) / 2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  animation: gaping 2s infinite alternate ease-in-out;
+}
+
+@keyframes gaping {
+  from {
+    scale: 0.7;
+  }
+
+  to {
+    scale: 1;
+  }
 }
