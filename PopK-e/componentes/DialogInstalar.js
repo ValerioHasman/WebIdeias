@@ -9,6 +9,7 @@ const dlg = _.dialog({ className: "telaDePreferencia", },
 );
 
 export default function DialogInstalar() {
+  setTimeout(requererTelaCheia,100)
   return dlg;
 }
 
@@ -52,10 +53,12 @@ function sairDaTelaCheia() {
   }
 }
 
-document.addEventListener("fullscreenchange", function () {
-  if (document.fullscreenElement) {
+document.addEventListener("fullscreenchange", requererTelaCheia);
+
+function requererTelaCheia(){
+    if (document.fullscreenElement) {
     dlg.close();
   } else {
     dlg.showModal();
   }
-});
+}

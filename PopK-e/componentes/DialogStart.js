@@ -1,11 +1,8 @@
 import _ from "../../Reactive.js";
 
 export default function DialogStart() {
-  const d = _.dialog({ className: "telaIniciar" },
-    _.img({ src: "iniciar.svg", onclick: ()=>{ d.close(); } })
+  const div = _.div({ className: "telaIniciar" },
+    _.img({ className: "imagemInicio", src: "iniciar.svg", onclick: () => { div.classList.add("ok"); } })
   );
-  window.addEventListener("load", () => { setTimeout(() => {
-    d.showModal();
-  }, 100); });
-  return d;
+  return div;
 }
