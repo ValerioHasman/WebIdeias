@@ -1,10 +1,13 @@
 import _ from "../../Reactive.js";
+import Coelho from "../Classes/Coelho.js";
 
 export default function Botao(prop) {
   const button = _.button({
-    className: "botao btn btn-primary border-0 col-auto shadow",
+    className: "botao overflow-hidden btn btn-primary border-0 col-auto shadow",
     ...onTocado(RandSom)
-  });
+  },
+    Coelho()
+  );
   button.style.setProperty('--bs-btn-bg', rgb());
   button.style.setProperty('--bs-btn-bg', rgb());
   button.style.setProperty('--bs-btn-bg', rgb());
@@ -18,7 +21,7 @@ function rgb() {
     }`;
 }
 
-function RandNum(inicio = 100, fim = 200) {
+export function RandNum(inicio = 100, fim = 200) {
   let numrand = Number.parseInt(Math.random() * (fim + 1));
   if (numrand < inicio) {
     numrand = RandNum(inicio, fim);
