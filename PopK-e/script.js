@@ -4,11 +4,11 @@ import DialogStart from "./componentes/DialogStart.js";
 import Jogo from "./painel/Jogo.js";
 
 document.body.append(
-  DialogStart(),
-  DialogInstalar(),
   _.div({ className: "h100vh tela" },
     _.div({ className: "flex-grow" },
       Jogo()
     )
-  )
+  ),
+  DialogStart(),
+  DialogInstalar(),
 );

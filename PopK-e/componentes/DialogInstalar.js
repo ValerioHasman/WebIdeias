@@ -9,13 +9,13 @@ const dlg = _.dialog({ className: "telaDePreferencia", },
 );
 
 export default function DialogInstalar() {
-  setTimeout(requererTelaCheia,100)
+  setTimeout(requererTelaCheia,100);
   return dlg;
 }
 
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
-  dlg.showModal();
+  requererTelaCheia();
   const btnInstalar = _.button({ className: "vjButton border-0 inMenu", onclick: () => { event.prompt(); btnInstalar.remove(); } },
     _.span({}, "Instalar", _.i({ className: "ms-2 bi bi-download" }))
   )
@@ -30,7 +30,7 @@ window.addEventListener("beforeinstallprompt", (event) => {
 
 function entrarEmTelaCheia() {
   const element = document.documentElement;
-  if (element.requestFullscreen) {
+  if (window.matchMedia("(display-mode: fullscreen)").matches) {
     element.requestFullscreen();
   } else if (element.mozRequestFullScreen) {
     element.mozRequestFullScreen();
@@ -53,10 +53,10 @@ function sairDaTelaCheia() {
   }
 }
 
-document.addEventListener("fullscreenchange", requererTelaCheia);
+window.addEventListener("resize", requererTelaCheia);
 
 function requererTelaCheia(){
-    if (document.fullscreenElement) {
+  if (window.matchMedia("(display-mode: fullscreen)").matches) {
     dlg.close();
   } else {
     dlg.showModal();

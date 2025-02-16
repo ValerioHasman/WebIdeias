@@ -1,3 +1,4 @@
+@import url(telaDeInicializacao.css);
 @import url(button.css);
 @import url(dialog.css);
 
@@ -71,70 +72,12 @@ dialog {
   background-color: violet;
 }
 
-.telaIniciar {
-  background-color: violet;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-}
-@starting-style {
-  .imagemInicio img {
-    opacity: 0;
-  }
-}
-
-.telaIniciar .imagemInicio {
-  width: calc((40% + 40%) / 2);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  animation: jumpupButtton 2s infinite alternate ease-in-out, fadeINImagem 2s ease-in-out;
-}
-
-
-.telaIniciar.ok{
-  display: none;
-  opacity: 0;
-  scale: 3;
-  transition: 1s all ease-in-out allow-discrete;
-}
-
-@keyframes fadeINImagem {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes jumpupButtton {
-  from {
-    scale: 0.7;
-  }
-
-  to {
-    scale: 1;
-  }
-}
 
 .Coelho {
   width: 100%;
   height: 100%;
 }
+
 .Coelho svg {
   width: 100%;
   height: 100%;
@@ -146,9 +89,11 @@ dialog {
   0% {
     translate: 0 100%;
   }
+
   50% {
     translate: 0 0;
   }
+
   100% {
     translate: 0 100%;
   }

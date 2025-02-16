@@ -1,0 +1,65 @@
+.telaIniciar {
+  background-color: violet;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+
+@starting-style {
+  .imagemInicio img {
+    opacity: 0;
+  }
+}
+
+.telaIniciar .imagemInicio {
+  width: calc((40% + 40%) / 2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  animation: jumpupButtton 2s infinite alternate ease-in-out, fadeINImagem 2s ease-in-out;
+  background-image: url(../imagens/iniciar.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1/1;
+  transition: all 1s;
+}
+
+.imagemInicio:active {
+  filter: drop-shadow(0 0 2rem rgb(255, 0, 255));
+  transition: all 0s;
+}
+
+.telaIniciar.ok {
+  display: none;
+  opacity: 0;
+  scale: 3;
+  transition: 1s all ease-in-out allow-discrete;
+}
+
+@keyframes fadeINImagem {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes jumpupButtton {
+  from {
+    scale: 0.7;
+  }
+
+  to {
+    scale: 1;
+  }
+}

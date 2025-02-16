@@ -11,6 +11,7 @@ export default function Botao(prop) {
   button.style.setProperty('--bs-btn-bg', rgb());
   button.style.setProperty('--bs-btn-bg', rgb());
   button.style.setProperty('--bs-btn-bg', rgb());
+  console.log(button);
   return button;
 }
 
