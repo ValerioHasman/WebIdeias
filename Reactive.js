@@ -5,20 +5,17 @@
  * @returns {void}
  */
 
-/**
- */
-
 /** Cria um elemento HTML e anexa os itens do array.
  * @template {keyof HTMLElementTagNameMap} ChavesHTML
  * @param {ChavesHTML} tagName - O nome da tag do elemento a ser criado. 
  * @param {HTMLElementTagNameMap[ChavesHTML]} props - Um array de itens para anexar ao elemento criado.
  * @param {(Node | string)[]} nodulo - Um array de itens para anexar ao elemento criado.
- * @returns {HTMLElementTagNameMap[ChavesHTML]&atribuirProps} - O elemento HTML criado. */
+ * @returns {HTMLElementTagNameMap[ChavesHTML]&{atribuirProps}} - O elemento HTML criado. */
 function NReact(tagName, props = {}, nodulo = []) {
   const element = document.createElement(tagName);
   element.append(...nodulo);
   atribuirProps(element, props);
-  element._$PROPs = function(propertys){
+  element.atribuirProps = function(propertys){
     atribuirProps(this, propertys);
   };
   return element;
