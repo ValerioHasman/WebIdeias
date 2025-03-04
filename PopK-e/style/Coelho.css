@@ -1,0 +1,76 @@
+.botao {
+  width: calc((20vw + 20vh) / 2);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  transition: .5s all;
+  --bs-btn-active-bg: var(--bs-btn-bg);
+}
+
+.botao:hover,
+.botao:focus,
+.botao:active {
+  color: var(--bs-btn-color);
+  background-color: var(--bs-btn-bg);
+}
+
+.botao.capture:is(.coelhoPula) {
+  --bs-btn-active-bg: #FFFF00;
+  background-color: var(--bs-btn-active-bg);
+  box-shadow: 0 0 1rem 1rem var(--bs-btn-active-bg), inset 0 0 1rem 1rem var(--bs-btn-active-bg) !important;
+  transition: 0s all;
+}
+
+.jogo {
+  transition: rotate .3s linear(0 0%, 1 16%, -1 32%, 1 48%, -1 64%, 1 80%, 0 100%);
+  rotate: 0deg;
+}
+
+:has(.botao.capture:not(.coelhoPula)) .jogo {
+  rotate: 5deg;
+}
+
+.botao.capture:not(.coelhoPula) {
+  background-color: silver;
+  transition: 0s all;
+}
+
+.Coelho {
+  width: 100%;
+  height: 100%;
+}
+
+.Coelho svg {
+  width: 100%;
+  height: 100%;
+  translate: 0 100%;
+}
+
+.botao.coelhoPula:is(.capture) .Coelho svg {
+  rotate: 45deg;
+  transition: all .5s cubic-bezier(0, 1, 0, 1);
+}
+
+.botao.coelhoPula .Coelho svg {
+  animation: sobe 1s cubic-bezier(0, .5, .5, 1), desce 1s 1s cubic-bezier(.5, 0, 1, .5);
+  transition: all 4s cubic-bezier(1, -4, 1, -4);
+}
+
+@keyframes sobe {
+  0% {
+    translate: 0 100%;
+  }
+
+  100% {
+    translate: 0 -25%;
+  }
+}
+
+@keyframes desce {
+  0% {
+    translate: 0 -25%;
+  }
+
+  100% {
+    translate: 0 100%;
+  }
+}
