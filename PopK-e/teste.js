@@ -6,6 +6,14 @@
     eruda.init();
     if(navigator.userAgent.toLowerCase().includes("tv")){
       eruda.show();
+      setInterval(() => {
+        const dialog = document.querySelector("dialog");
+        if(dialog.open){
+          dialog.close();
+        } else{
+          dialog.showModal();
+        }
+      }, 6000);
     }
   }
 })();
