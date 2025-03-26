@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
 @import url(telaDeInicializacao.css);
 @import url(button.css);
 @import url(dialog.css);
@@ -53,4 +54,15 @@ dialog {
 
 .telaDePreferencia {
   background-color: violet;
+}
+
+.placar {
+  font-family: "Atma", system-ui;
+  font-weight: 500;
+  font-size: xxx-large;
+  font-style: italic;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  color: rgb(58, 0, 108);
 }
