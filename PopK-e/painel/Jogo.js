@@ -21,7 +21,6 @@ class Jogo {
         botao.classList.remove("coelhoPula");
       }
       const btn = document.querySelector(`[data-id="${this.proximoCoelho(coelhoAnterior)}"]`);
-      console.log(btn);
       btn.classList.add("coelhoPula");
     }, 2000);
   }
@@ -30,7 +29,6 @@ class Jogo {
   }
   proximoCoelho(coelhoAnterior = { dataset: { id: 0 } }) {
     let proximoCoelho = Aleatorio.entre(0, this.#numeroDeCasas - 1);
-    console.log(proximoCoelho,coelhoAnterior.dataset.id)
     if (proximoCoelho == coelhoAnterior.dataset.id) {
       return this.proximoCoelho(coelhoAnterior);
     }
