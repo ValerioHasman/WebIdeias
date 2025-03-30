@@ -12,10 +12,14 @@ const audios = [
   new Audio(`./midias/pop-5.mp3`)
 ];
 
-export default function Botao(prop) {
+/**
+ * @param {Partial<HTMLButtonElement>} prop
+ * @param {import('../painel/Jogo.js').Jogo} jogo
+ */
+export default function Botao(prop, jogo) {
   const button = _.button({
     className: "botao overflow-hidden btn btn-primary border-0 col-auto shadow",
-    ...onTocado()
+    ...onTocado(jogo)
   },
     Coelho()
   );
@@ -28,14 +32,21 @@ function RandSom() {
   audios[Aleatorio.entre(0, 4)].play();
 }
 
-/** @returns {Partial<HTMLButtonElement>} */
-function onTocado() {
+/**
+ * @param {import('../painel/Jogo.js').Jogo} jogo
+ * @returns {Partial<HTMLButtonElement>}
+ * */
+function onTocado(jogo) {
   function capturar() {
-    this.classList.add("capture");
-    if(this.className.includes("coelhoPula")){
-      RandSom();
-    } else {
-      audiosErro.play();
+    if (!this.className.includes("capturado")) {
+      this.classList.add("capture");
+      if (this.className.includes("coelhoPula")) {
+        this.classList.add("capturado");
+        jogo.capture();
+        RandSom();
+      } else {
+        audiosErro.play();
+      }
     }
   }
 
