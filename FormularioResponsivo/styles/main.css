@@ -56,59 +56,22 @@
   }
 }
 
-:has(#scrollbehavior:is(:checked)) * {
-  scroll-behavior: smooth;
-}
-:has(#scrollbehavior:not(:checked)) * {
-  scroll-behavior: auto;
+body {
+  transition: height var(--transicao) var(--atraso) ease-in-out;
 }
 
-* {
-  transition: all var(--transicao) var(--atraso) ease-in-out;
+nav a {
+  transition: background-color 700ms 350ms ease-out;
+  border-radius: .5rem;
 }
 
-:has(input[type=radio][name=transition][value="1"]:is(:checked)) * {
-  --transicao: 0ms;
+nav a:active {
+  transition: none;
+  background-color: #80808080;
 }
 
-:has(input[type=radio][name=transition][value="2"]:is(:checked)) * {
-  --transicao: 150ms;
-}
-
-:has(input[type=radio][name=transition][value="3"]:is(:checked)) * {
-  --transicao: 500ms;
-}
-
-:has(input[type=radio][name=atraso][value="1"]:is(:checked)) * {
-  --atraso: 0ms;
-}
-
-:has(input[type=radio][name=atraso][value="2"]:is(:checked)) * {
-  --atraso: 150ms;
-}
-
-:has(input[type=radio][name=atraso][value="3"]:is(:checked)) * {
-  --atraso: 500ms;
-}
-
-:has(input[type=radio][name=margemdinamica][value="1"]:is(:checked)) .margem-dinamica {
-  --bs-gutter-y: 1rem;
-}
-
-:has(input[type=radio][name=margemdinamica][value="2"]:is(:checked)) .margem-dinamica {
-  --bs-gutter-y: 2rem;
-}
-
-:has(input[type=radio][name=margemdinamica][value="3"]:is(:checked)) .margem-dinamica {
-  --bs-gutter-y: 3rem;
-}
-
-:has(input[type=radio][name=margemdinamica][value="6"]:is(:checked)) .margem-dinamica {
-  --bs-gutter-y: 6rem;
-}
-
-:has(input[type=radio][name=margemdinamica][value="15"]:is(:checked)) .margem-dinamica {
-  --bs-gutter-y: 15rem;
+input[type=range] {
+  touch-action: none;
 }
 
 .vh-100 {
@@ -123,35 +86,6 @@
   flex: none;
 }
 
-.scroll-snap-type-x-mandatory {
-  scroll-snap-type: x mandatory;
-}
-
-.scroll-snap-align-center {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  margin-left: 3rem;
-  margin-right: 3rem;
-}
-
-::-webkit-scrollbar {
-  max-width: 5px;
-  max-height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #80808080;
-  border-radius: 1rem;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #808080;
-}
-
-input[type=range] {
-  touch-action: none;
+label {
+  user-select: none;
 }

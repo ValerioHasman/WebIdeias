@@ -7,84 +7,82 @@
   <title>Melhor Formulário</title>
   <link rel="shortcut icon" href="favicon.png" type="image/png" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="index.css" />
 </head>
 
-<body class="vh-100 user-select-none text-break">
-  <form class="h-100 d-flex flex-direction-column overflow-hidden" action="./#enviado" method="get">
-    <div class="flex-grow-0 bg-body-tertiary">
-      <div class="container py-2">
-        <h1 class="h3 m-0">Melhor Formulário</h1>
+<body class="vh-100 text-break">
+  <form class="h-100 d-flex flex-direction-column overflow-hidden" action="#enviado" method="get">
+    <header class="flex-grow-0 bg-body-tertiary">
+      <div class="container">
+        <nav class="row text-center fs-4 gap-1">
+          <a class="col text-body text-decoration-none p-2" href="javascript:texto.scrollIntoView();">
+            <i class="bi bi-file-text"></i>
+          </a>
+          <a class="col text-body text-decoration-none p-2" href="javascript:configuracao.scrollIntoView();">
+            <i class="bi bi-gear"></i>
+          </a>
+          <a class="col text-body text-decoration-none p-2" href="javascript:dados.scrollIntoView();">
+            <i class="bi bi-info-circle"></i>
+          </a>
+        </nav>
       </div>
-    </div>
-    <div class="flex-grow-1 overflow-x-auto overflow-y-hidden d-flex scroll-snap-type-x-mandatory">
-      <div class="w-100 flex-none scroll-snap-align-center overflow-x-auto">
-        <div class="container my-5">
+    </header>
+    <main class="flex-grow-1 overflow-x-auto overflow-y-hidden d-flex scroll-snap-type-x-mandatory">
+      <div class="w-100 mx-5 flex-none scroll-snap-align-always overflow-x-auto">
+        <div class="container py-5" id="texto">
           <div class="row margem-dinamica">
-            <h2 class="col-12">Texto</h2>
-            <p class="col-12">
-              O que é o Lorem Ipsum?
-            </p>
-            <p class="col-12">
-              O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o
-              texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto
-              para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a
-              tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a
-              disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com
-              os
-              programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.
-            </p>
-            <p class="col-12">
-              Porque é que o usamos?
-            </p>
-            <p class="col-12">
-              É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a
-              sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao
-              contrário do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. Muitas ferramentas de
-              publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto
-              usado
-              por omissão, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites ainda na sua infância. Várias
-              versões têm evoluído ao longo dos anos, por vezes por acidente, por vezes propositadamente (como no caso
-              do
-              humor).
-            </p>
-            <p class="col-12">
-              De onde é que ele vem?
-            </p>
-            <p class="col-12">
-              Ao contrário da crença popular, o Lorem Ipsum não é simplesmente texto aleatório. Tem raízes numa peça de
-              literatura clássica em Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard McClintock, um professor
-              de Latim no Colégio Hampden-Sydney, na Virgínia, procurou uma das palavras em Latim mais obscuras
-              (consectetur) numa passagem Lorem Ipsum, e atravessando as cidades do mundo na literatura clássica,
-              descobriu a sua origem. Lorem Ipsum vem das secções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum"
-              (Os
-              Extremos do Bem e do Mal), por Cícero, escrito a 45AC. Este livro é um tratado na teoria da ética, muito
-              popular durante a Renascença. A primeira linha de Lorem Ipsum, "Lorem ipsum dolor sit amet..." aparece de
-              uma linha na secção 1.10.32.
-            </p>
-            <p class="col-12">
-              O pedaço mais habitual do Lorem Ipsum usado desde os anos 1500 é reproduzido abaixo para os interessados.
-              As secções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum" do Cícero também estão reproduzidos na sua
-              forma original, acompanhados pela sua tradução em Inglês, versões da tradução de 1914 por H. Rackham.
-            </p>
-            <p class="col-12">
-              Onde posso arranjar algum?
-            </p>
-            <p class="col-12">
-              Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de
-              alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente
-              credíveis. Se vai usar uma passagem do Lorem Ipsum, deve ter a certeza que não contém nada de embaraçoso
-              escondido no meio do texto. Todos os geradores de Lorem Ipsum na Internet acabam por repetir porções de
-              texto pré-definido, como necessário, fazendo com que este seja o primeiro verdadeiro gerador na Internet.
-              Usa um dicionário de 200 palavras em Latim, combinado com uma dúzia de modelos de frases, para gerar Lorem
-              Ipsum que pareçam razoáveis. Desta forma, o Lorem Ipsum gerado é sempre livre de repetição, ou de injecção
-              humorística, etc.
-            </p>
+            <h1>Melhor Formulário</h1>
+            <p>Este formulário foi desenvolvido para testar ao máximo recursos do HTML, CSS e JS, são eles:</p>
+            <div>
+              <ul>
+                <li>
+                  <code>scroll-behavior</code>
+                  <p>Bastante conhecido, com ao valor smooth habilita transição no scroll</p>
+                </li>
+                <li>
+                  <code>scroll-snap</code>
+                  <ul>
+                    <li>
+                      <code>scroll-snap-type</code>
+                      <p>A <code>main</code> inteira recebe esta propriedade, que está definida como <code>x mandatory</code></p>
+                    </li>
+                    <li>
+                      <code>scroll-snap-align</code>
+                      <p>Alinhamento da rolagem. Filhos diretos da main recebem essa propriedade.</p>
+                    </li>
+                    <li>
+                      <code>scroll-snap-stop</code>
+                      <p>Define o tipo de parada, está definida como <code>always</code> onde não permite pular um item sequer. Filhos diretos da main recebem essa propriedade.</p>
+                    </li>
+                  </ul>
+                  <p>Usados em conjunto para criar um scroll controlado da centralização do conteúdo, pode verificar isso ao tentar preencher o formulário os campos requeridos farão o trabalho de levar até eles, ou clicando nos ícones acima, ou por alguma <code>#hash</code>.</p>
+                </li>
+                <li>
+                  <code>interactive-widget=resizes-content</code>
+                  <p>Este recurso funciona apenas em dispositivos com teclado virtual, ele faz com que a página deixe de considerar o tamanho da tela para considerar apenas a área visível, fazendo assim o header e o footer serem visíveis ao mesmo tempo como em aplicativos de chat.</p>
+                </li>
+                <li>
+                  <code>scrollIntoView</code>
+                  <p>Emula o efeito do <code>#target</code>, sem gerar níveis de navegação. Usado nos links acima.</p>
+                </li>
+                <li>
+                  <code>d-flex, flex-direction-column e flex-grow-1</code>
+                  <p>Criam esta disposição responsiva do <code>header</code>, <code>main</code> e <code>footer</code>.</p>
+                </li>
+              </ul>
+            </div>
+            <h2>Lorem Ipsum</h2>
+            <h3>O que é o Lorem Ipsum?</h3>
+            <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.</p>
+            <h3>Porque é que o usamos?</h3>
+            <p>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites ainda na sua infância. Várias versões têm evoluído ao longo dos anos, por vezes por acidente, por vezes propositadamente (como no caso do humor).</p>
+            <h3>De onde é que ele vem?</h3>
+            <p>Ao contrário da crença popular, o Lorem Ipsum não é simplesmente texto aleatório. Tem raízes numa peça de literatura clássica em Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard McClintock, um professor de Latim no Colégio Hampden-Sydney, na Virgínia, procurou uma das palavras em Latim mais obscuras (consectetur) numa passagem Lorem Ipsum, e atravessando as cidades do mundo na literatura clássica, descobriu a sua origem. Lorem Ipsum vem das secções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum" (Os Extremos do Bem e do Mal), por Cícero, escrito a 45AC. Este livro é um tratado na teoria da ética, muito popular durante a Renascença. A primeira linha de Lorem Ipsum, "Lorem ipsum dolor sit amet..." aparece de uma linha na secção 1.10.32.</p>
+            <p>O pedaço mais habitual do Lorem Ipsum usado desde os anos 1500 é reproduzido abaixo para os interessados. As secções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum" do Cícero também estão reproduzidos na sua forma original, acompanhados pela sua tradução em Inglês, versões da tradução de 1914 por H. Rackham.</p>
+            <h3>Onde posso arranjar algum?</h3>
+            <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis. Se vai usar uma passagem do Lorem Ipsum, deve ter a certeza que não contém nada de embaraçoso escondido no meio do texto. Todos os geradores de Lorem Ipsum na Internet acabam por repetir porções de texto pré-definido, como necessário, fazendo com que este seja o primeiro verdadeiro gerador na Internet. Usa um dicionário de 200 palavras em Latim, combinado com uma dúzia de modelos de frases, para gerar Lorem Ipsum que pareçam razoáveis. Desta forma, o Lorem Ipsum gerado é sempre livre de repetição, ou de injecção humorística, etc.</p>
             <div class="col-12">
               <label class="form-check">
                 <input class="form-check-input" type="checkbox" value="" required />
@@ -94,45 +92,41 @@
           </div>
         </div>
       </div>
-      <div class="w-100 flex-none scroll-snap-align-center overflow-x-auto">
-        <div class="container my-5">
+      <div class="w-100 mx-5 flex-none scroll-snap-align-always overflow-x-auto">
+        <div class="container py-5" id="configuracao">
           <div class="row margem-dinamica">
             <h2 class="col-12">Configurações</h2>
             <div class="col-12">
               <div>Margem entre elementos</div>
               <label class="form-check">
                 <input class="form-check-input" type="radio" name="margemdinamica" value="1" />
-                <div class="form-check-label">
-                  1rem
-                </div>
+                <div class="form-check-label">1rem</div>
               </label>
               <label class="form-check">
                 <input class="form-check-input" type="radio" name="margemdinamica" value="2" checked />
-                <div class="form-check-label">
-                  2rem
-                </div>
+                <div class="form-check-label">2rem</div>
               </label>
               <label class="form-check">
                 <input class="form-check-input" type="radio" name="margemdinamica" value="3" />
-                <div class="form-check-label">
-                  3rem
-                </div>
+                <div class="form-check-label">3rem</div>
               </label>
               <label class="form-check">
                 <input class="form-check-input" type="radio" name="margemdinamica" value="6" />
-                <div class="form-check-label">
-                  6rem
-                </div>
+                <div class="form-check-label">6rem</div>
               </label>
               <label class="form-check">
                 <input class="form-check-input" type="radio" name="margemdinamica" value="15" />
-                <div class="form-check-label">
-                  15rem
-                </div>
+                <div class="form-check-label">15rem</div>
               </label>
             </div>
             <div class="col-12">
-              <div>Transição</div>
+              <label class="form-check form-switch">
+                <input class="form-check-input" checked type="checkbox" role="switch" id="scrollbehavior" />
+                <div class="form-check-label">Rolagem suave <code>scroll-behavior: smooth;</code></div>
+              </label>
+            </div>
+            <div class="col-12">
+              <div>Transição da altura da página</div>
               <label class="form-check">
                 <input class="form-check-input" type="radio" name="transition" value="1" />
                 <div class="form-check-label">0ms</div>
@@ -147,24 +141,18 @@
               </label>
             </div>
             <div class="col-12">
-              <div>Atraso na transição</div>
+              <div>Atraso na transição da altura da página</div>
               <label class="form-check">
-                <input class="form-check-input" type="radio" name="atraso" value="1" checked />
+                <input class="form-check-input" type="radio" name="atraso" value="1" />
                 <div class="form-check-label">0ms</div>
               </label>
               <label class="form-check">
-                <input class="form-check-input" type="radio" name="atraso" value="2" />
+                <input class="form-check-input" type="radio" name="atraso" value="2" checked />
                 <div class="form-check-label">150ms</div>
               </label>
               <label class="form-check">
                 <input class="form-check-input" type="radio" name="atraso" value="3" />
                 <div class="form-check-label">500ms</div>
-              </label>
-            </div>
-            <div class="col-12">
-              <label class="form-check form-switch">
-                <input class="form-check-input" checked type="checkbox" role="switch" id="scrollbehavior" />
-                <div class="form-check-label">Rolagem suave <code>scroll-behavior: smooth;</code></div>
               </label>
             </div>
             <hr />
@@ -229,8 +217,8 @@
           </div>
         </div>
       </div>
-      <div class="w-100 flex-none scroll-snap-align-center overflow-x-auto">
-        <div class="container my-5">
+      <div class="w-100 mx-5 flex-none scroll-snap-align-always overflow-x-auto">
+        <div class="container py-5" id="dados">
           <h2>Dados</h2>
           <div class="row margem-dinamica">
             <div class="col-12">
@@ -242,61 +230,62 @@
             <div class="col-12">
               <label class="input-group">
                 <span class="input-group-text"><i class="bi bi-info-circle"></i></span>
-                <input type="text" class="form-control" name="t1" placeholder="" />
+                <input type="text" class="form-control" name="r1" placeholder="" />
               </label>
             </div>
             <div class="col-12">
               <label class="input-group">
                 <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                <input type="text" class="form-control" name="t2" placeholder="" />
+                <input type="text" class="form-control" name="r2" placeholder="" />
               </label>
             </div>
             <div class="col-12">
               <label class="input-group">
                 <span class="input-group-text"><i class="bi bi-arrow-up-right"></i></span>
-                <input type="text" class="form-control" name="t3" placeholder="" />
+                <input type="text" class="form-control" name="r3" placeholder="" />
               </label>
             </div>
             <div class="col-12">
               <label class="input-group">
                 <span class="input-group-text"><i class="bi bi-clipboard2"></i></span>
-                <input type="text" class="form-control" name="t4" placeholder="" />
+                <input type="text" class="form-control" name="r4" placeholder="" />
               </label>
             </div>
             <div class="col-12">
               <label class="input-group">
                 <span class="input-group-text"><i class="bi bi-controller"></i></span>
-                <input type="text" class="form-control" name="t5" placeholder="" />
+                <input type="text" class="form-control" name="r5" placeholder="" />
               </label>
             </div>
             <div class="col-12">
               <label class="input-group">
                 <span class="input-group-text"><i class="bi bi-credit-card-fill"></i></span>
-                <input type="text" class="form-control" name="t6" placeholder="" />
+                <input type="text" class="form-control" name="r6" placeholder="" />
               </label>
             </div>
             <div class="col-12">
               <label class="input-group">
                 <span class="input-group-text"><i class="bi bi-dribbble"></i></span>
-                <input type="text" class="form-control" name="t7" placeholder="" />
+                <input type="text" class="form-control" name="r7" placeholder="" />
               </label>
             </div>
             <div class="col-12">
               <label class="input-group">
                 <span class="input-group-text"><i class="bi bi-question-octagon"></i></span>
-                <input type="text" class="form-control" name="t8" placeholder="" required />
+                <input type="text" class="form-control" name="r8" placeholder="" required />
               </label>
             </div>
+            <small>Fim do formulário.</small>
           </div>
         </div>
       </div>
-    </div>
-    <div class="flex-grow-0 bg-body-tertiary">
+    </main>
+    <footer class="flex-grow-0 bg-body-tertiary">
       <div class="container py-2 d-flex gap-1 justify-content-end">
         <button class="btn btn-secondary" type="reset"><i class="bi bi-x-lg me-2"></i>Resetar</button>
         <button class="btn btn-primary" type="submit"><i class="bi bi-send me-2"></i>Enviar</button>
       </div>
-    </div>
+    </footer>
   </form>
 </body>
 

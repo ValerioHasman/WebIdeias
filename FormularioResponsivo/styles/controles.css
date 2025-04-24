@@ -1,0 +1,68 @@
+:has(input:focus) body {
+  transition: none;
+}
+
+:has(input[type=radio][name=transition][value="1"]:is(:checked)) body {
+  --transicao: 0ms;
+}
+
+:has(input[type=radio][name=transition][value="2"]:is(:checked)) body {
+  --transicao: 150ms;
+}
+
+:has(input[type=radio][name=transition][value="3"]:is(:checked)) body {
+  --transicao: 500ms;
+}
+
+:has(input[type=radio][name=atraso][value="1"]:is(:checked)) body {
+  --atraso: 0ms;
+}
+
+:has(input[type=radio][name=atraso][value="2"]:is(:checked)) body {
+  --atraso: 150ms;
+}
+
+:has(input[type=radio][name=atraso][value="3"]:is(:checked)) body {
+  --atraso: 500ms;
+}
+
+.margem-dinamica>*,
+.margem-dinamica {
+  transition: margin-top 150ms 150ms ease-out;
+}
+
+:has(input[type=radio][name=margemdinamica][value="1"]:is(:checked)) .margem-dinamica {
+  --bs-gutter-y: 1rem;
+}
+
+:has(input[type=radio][name=margemdinamica][value="2"]:is(:checked)) .margem-dinamica {
+  --bs-gutter-y: 2rem;
+}
+
+:has(input[type=radio][name=margemdinamica][value="3"]:is(:checked)) .margem-dinamica {
+  --bs-gutter-y: 3rem;
+}
+
+:has(input[type=radio][name=margemdinamica][value="6"]:is(:checked)) .margem-dinamica {
+  --bs-gutter-y: 6rem;
+}
+
+:has(input[type=radio][name=margemdinamica][value="15"]:is(:checked)) .margem-dinamica {
+  --bs-gutter-y: 15rem;
+}
+.scroll-snap-type-x-mandatory {
+  scroll-snap-type: x mandatory;
+}
+
+:has(#scrollbehavior:is(:checked)) .scroll-snap-type-x-mandatory {
+  scroll-behavior: smooth;
+}
+
+:has(#scrollbehavior:not(:checked)) .scroll-snap-type-x-mandatory {
+  scroll-behavior: auto;
+}
+
+.scroll-snap-align-always {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
