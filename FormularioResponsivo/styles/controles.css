@@ -56,14 +56,14 @@
 
 :has(#scrollbehavior:is(:checked)) {
   
-  .scroll-snap-type-x-mandatory, scroll-snap-align-always {
+  .scroll-snap-type-x-mandatory, .scroll-snap-align-always {
     scroll-behavior: smooth;
   }
 }
 
 :has(#scrollbehavior:not(:checked)) {
   
-  .scroll-snap-type-x-mandatory, scroll-snap-align-always {
+  .scroll-snap-type-x-mandatory, .scroll-snap-align-always {
     scroll-behavior: auto;
   }
 }
