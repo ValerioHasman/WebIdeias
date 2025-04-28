@@ -1,5 +1,14 @@
-:has(input:focus) body {
-  transition: none;
+body {
+  --transicao: 150ms;
+  --atraso: 150ms;
+  transition: height var(--transicao) var(--atraso) ease-in-out;
+}
+
+:has(#inputtransition:checked):has(input:focus) {
+
+  body {
+    transition: none;
+  }
 }
 
 :has(input[type=radio][name=transition][value="1"]:is(:checked)) body {
@@ -31,6 +40,10 @@
   transition: margin-top 150ms 150ms ease-out;
 }
 
+.margem-dinamica {
+  --bs-gutter-y: 2rem;
+}
+
 :has(input[type=radio][name=margemdinamica][value="1"]:is(:checked)) .margem-dinamica {
   --bs-gutter-y: 1rem;
 }
@@ -50,19 +63,18 @@
 :has(input[type=radio][name=margemdinamica][value="15"]:is(:checked)) .margem-dinamica {
   --bs-gutter-y: 15rem;
 }
+
 .scroll-snap-type-x-mandatory {
   scroll-snap-type: x mandatory;
-}
-
-:has(#scrollbehavior:is(:checked)) .scroll-snap-type-x-mandatory {
   scroll-behavior: smooth;
-}
-
-:has(#scrollbehavior:not(:checked)) .scroll-snap-type-x-mandatory {
-  scroll-behavior: auto;
 }
 
 .scroll-snap-align-always {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+  scroll-behavior: smooth;
+}
+
+:has(#scrollbehavior:not(:checked)) :is(.scroll-snap-type-x-mandatory, .scroll-snap-align-always) {
+  scroll-behavior: auto;
 }

@@ -56,10 +56,6 @@
   }
 }
 
-body {
-  transition: height var(--transicao) var(--atraso) ease-in-out;
-}
-
 nav a {
   transition: background-color 700ms 350ms ease-out;
   border-radius: .5rem;
