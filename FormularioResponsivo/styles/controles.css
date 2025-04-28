@@ -66,6 +66,7 @@ body {
 
 .scroll-snap-type-x-mandatory {
   scroll-snap-type: x mandatory;
+<<<<<<< HEAD
   scroll-behavior: smooth;
 }
 
@@ -78,3 +79,25 @@ body {
 :has(#scrollbehavior:not(:checked)) :is(.scroll-snap-type-x-mandatory, .scroll-snap-align-always) {
   scroll-behavior: auto;
 }
+=======
+}
+
+:has(#scrollbehavior:is(:checked)) {
+  
+  .scroll-snap-type-x-mandatory, .scroll-snap-align-always {
+    scroll-behavior: smooth;
+  }
+}
+
+:has(#scrollbehavior:not(:checked)) {
+  
+  .scroll-snap-type-x-mandatory, .scroll-snap-align-always {
+    scroll-behavior: auto;
+  }
+}
+
+.scroll-snap-align-always {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+>>>>>>> ab4608a0f267e1f6e9a30814ad7eb65de45beec4
