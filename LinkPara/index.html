@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Link Para</title>
+  <link rel="stylesheet" href="index.css" />
+  <script defer src="index.js"></script>
+</head>
+
+<body class="row">
+  <div class="container col-max">
+    <label class="row">
+      <div><u>A</u>rquivo:</div>
+      <input type="file" accesskey="a" name="file" id="file" autofocus />
+    </label>
+    <fieldset>
+      <legend>Convertido para</legend>
+      <label class="row">
+        <div class="col-max"><code>base64</code>: <span data-caracteres="base64"></span></div>
+        <div class="col">
+          <input type="text" readonly name="inp1" id="inp1" placeholder="base64" />
+        </div>
+        <div class="col-min">
+          <button type="button" id="btn1" class="linkpara">
+            <span class="icon-copy"></span>
+          </button>
+        </div>
+        <div class="col-min">
+          <a class="linkpara" href="./" id="a1" target="_blank">
+            <span class="icon-target-blank"></span>
+          </a>
+        </div>
+      </label>
+      <label class="row">
+        <div class="col-max"><code>encodeURIComponent</code>: <span data-caracteres="encodeURIComponent"></span></div>
+        <div class="col">
+          <input type="text" readonly name="inp2" id="inp2" placeholder="encodeURIComponent" />
+        </div>
+        <div class="col-min">
+          <button type="button" id="btn2" class="linkpara">
+            <span class="icon-copy"></span>
+          </button>
+        </div>
+        <div class="col-min">
+          <a class="linkpara" href="./" id="a2" target="_blank">
+            <span class="icon-target-blank"></span>
+          </a>
+        </div>
+      </label>
+    </fieldset>
+  </div>
+</body>
+
+</html>

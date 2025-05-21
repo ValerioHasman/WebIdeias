@@ -1,0 +1,125 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  font-size: 1rem;
+}
+
+input {
+  user-select: all;
+  padding: 1rem;
+  width: 100%;
+  background-color: #F5F5F5;
+  border-radius: 1rem;
+  border: none;
+  outline-color: #80808080;
+  line-height: 1rem;
+}
+
+fieldset {
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 1rem;
+  border: 1px solid #80808080;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.linkpara {
+  padding: 1rem;
+  background-color: #F5F5F5;
+  border-radius: 1rem;
+  text-decoration: none;
+  outline-color: #80808080;
+  display: inline-block;
+  border: none;
+  transition: background-color 500ms ease-out;
+  line-height: 0;
+}
+
+.icon-target-blank {
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktYm94LWFycm93LXVwLXJpZ2h0IiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTguNjM2IDMuNWEuNS41IDAgMCAwLS41LS41SDEuNUExLjUgMS41IDAgMCAwIDAgNC41djEwQTEuNSAxLjUgMCAwIDAgMS41IDE2aDEwYTEuNSAxLjUgMCAwIDAgMS41LTEuNVY3Ljg2NGEuNS41IDAgMCAwLTEgMFYxNC41YS41LjUgMCAwIDEtLjUuNWgtMTBhLjUuNSAwIDAgMS0uNS0uNXYtMTBhLjUuNSAwIDAgMSAuNS0uNWg2LjYzNmEuNS41IDAgMCAwIC41LS41Ii8+CiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTYgLjVhLjUuNSAwIDAgMC0uNS0uNWgtNWEuNS41IDAgMCAwIDAgMWgzLjc5M0w2LjE0NiA5LjE0NmEuNS41IDAgMSAwIC43MDguNzA4TDE1IDEuNzA3VjUuNWEuNS41IDAgMCAwIDEgMHoiLz4KPC9zdmc+");
+}
+
+.icon-copy {
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktY29weSIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00IDJhMiAyIDAgMCAxIDItMmg4YTIgMiAwIDAgMSAyIDJ2OGEyIDIgMCAwIDEtMiAySDZhMiAyIDAgMCAxLTItMnptMi0xYTEgMSAwIDAgMC0xIDF2OGExIDEgMCAwIDAgMSAxaDhhMSAxIDAgMCAwIDEtMVYyYTEgMSAwIDAgMC0xLTF6TTIgNWExIDEgMCAwIDAtMSAxdjhhMSAxIDAgMCAwIDEgMWg4YTEgMSAwIDAgMCAxLTF2LTFoMXYxYTIgMiAwIDAgMS0yIDJIMmEyIDIgMCAwIDEtMi0yVjZhMiAyIDAgMCAxIDItMmgxdjF6Ii8+Cjwvc3ZnPg==");
+}
+
+.icon-check {
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktY2hlY2syLXNxdWFyZSIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNMyAxNC41QTEuNSAxLjUgMCAwIDEgMS41IDEzVjNBMS41IDEuNSAwIDAgMSAzIDEuNWg4YS41LjUgMCAwIDEgMCAxSDNhLjUuNSAwIDAgMC0uNS41djEwYS41LjUgMCAwIDAgLjUuNWgxMGEuNS41IDAgMCAwIC41LS41VjhhLjUuNSAwIDAgMSAxIDB2NWExLjUgMS41IDAgMCAxLTEuNSAxLjV6Ii8+CiAgPHBhdGggZD0ibTguMzU0IDEwLjM1NCA3LTdhLjUuNSAwIDAgMC0uNzA4LS43MDhMOCA5LjI5MyA1LjM1NCA2LjY0NmEuNS41IDAgMSAwLS43MDguNzA4bDMgM2EuNS41IDAgMCAwIC43MDggMCIvPgo8L3N2Zz4=");
+}
+.icon-erro {
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmkteC1sZyIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNMi4xNDYgMi44NTRhLjUuNSAwIDEgMSAuNzA4LS43MDhMOCA3LjI5M2w1LjE0Ni01LjE0N2EuNS41IDAgMCAxIC43MDguNzA4TDguNzA3IDhsNS4xNDcgNS4xNDZhLjUuNSAwIDAgMS0uNzA4LjcwOEw4IDguNzA3bC01LjE0NiA1LjE0N2EuNS41IDAgMCAxLS43MDgtLjcwOEw3LjI5MyA4eiIvPgo8L3N2Zz4=");
+}
+
+
+
+input[type=file] {
+  transition: background-color 500ms ease-out;
+}
+
+.linkpara:active,
+input[type=file]:active {
+  background-color: #E5E5E5;
+  transition: background-color 0s linear;
+}
+
+:disabled {
+  background-color: #80808080 !important;
+  opacity: .5;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.col {
+  flex: 1 0 0;
+}
+
+.col-min {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.col-max {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 70% ;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 90%;
+  }
+}
+
+[data-caracteres] {
+  border-radius: 5rem;
+  background-color: #E5E5E5;
+  padding: 0.2rem;
+  font-size: xx-small;
+}
