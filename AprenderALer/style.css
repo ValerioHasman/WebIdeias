@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+BR+Guides&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+BR:wght@100..400&display=swap');
+
+.playwrite-br-guides-regular {
+  font-family: "Playwrite BR Guides", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.playwrite-br {
+  font-family: "Playwrite BR", cursive;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.min-4 {
+  padding: 2rem;
+}
+
+:has(#maiusculo:checked) {
+  .fonte-custom {
+    text-transform: uppercase;
+  }
+}
+
+:has(#cursivo:checked) {
+  .fonte-custom {
+    font-family: "Playwrite BR", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+  }
+}
+
+:has(#grafia:checked) {
+  .fonte-custom {
+    font-family: "Playwrite BR Guides", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+}
