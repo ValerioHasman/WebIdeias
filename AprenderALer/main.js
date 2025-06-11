@@ -1,6 +1,9 @@
 import { formulario, alfabeto } from "./componentes.js";
+import Elemento from "./Elemento.js";
 
 document.body.append(
-  formulario(),
-  alfabeto()
+  Elemento.div({ className: "user-select-none"},
+    formulario(),
+    alfabeto()
+  )
 );
