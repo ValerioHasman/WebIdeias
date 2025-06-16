@@ -2,7 +2,7 @@ import Elemento from "./Elemento.js";
 
 export function formulario() {
   return (
-    Elemento.div({ className: "container pt-5" },
+    Elemento.div({ className: "container pt-5 flex-grow-0" },
       Elemento.textarea({
         className: "form-control fonte-custom fs-4",
         name: "texto",
@@ -63,7 +63,7 @@ export function formulario() {
 
 export function alfabeto() {
   return (
-    Elemento.div({ className: "d-flex flex-wrap fs-1 justify-content-around" },
+    Elemento.div({ className: "d-flex flex-wrap fs-1 justify-content-around flex-grow-1 overflow-y-auto" },
       ...(function () {
         const lista = new Array();
         lista.push(
