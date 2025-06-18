@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom com Roda do Mouse</title>
+    <style>
+        #zoomable {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 50px;
+            transition: transform 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="zoomable"></div>
+
+    <script>
+        let currentScale = 1;
+        const zoomableElement = document.getElementById('zoomable');
+
+        zoomableElement.addEventListener('wheel', (e) => {
+            if (e.deltaY < 0) {
+                currentScale *= 1.1;  // Zoom in
+            } else {
+                currentScale *= 0.9;  // Zoom out
+            }
+            zoomableElement.style.transform = `scale(${currentScale})`;
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

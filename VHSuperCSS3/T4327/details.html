@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            user-select: none;
+        }
+
+        details {
+            border: 1px solid rgba(127, 127, 127, 0.5);
+            border-radius: 4px;
+            transition: height .1s ease-out allow-discrete;
+            overflow: hidden;
+            margin-bottom: .9rem;
+        }
+
+        summary {
+            font-weight: bold;
+            padding: 0.5em;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid rgba(127, 127, 127, 0.5);
+        }
+
+        & {
+            interpolate-size: allow-keywords;
+        }
+
+        details:not([open]) {
+            height: 36px;
+            transition: none;
+        }
+
+        div {
+            padding: 1rem;
+        }
+
+        details>summary::marker {
+            content: '';
+        }
+
+        details>summary::before {
+            content: '\25B6';
+            display: inline-block;
+            transition: .1s ease-out;
+            margin-right: .5rem;
+            font-weight: normal;
+            line-height: 1rem;
+        }
+
+        details.play>summary::before {
+            content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9ImJpIGJpLXBsYXktZmlsbCIgZmlsbD0iY3VycmVudENvbG9yIj4KCiA8Zz4KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+CiAgPHBhdGggc3Ryb2tlPSJudWxsIiBpZD0ic3ZnXzEiIGQ9Im0xNC4zNzY4LDkuMjM1NTZsLTExLjI4NDE0LDYuNTQ3MzljLTAuOTU3NjQsMC41NTUwNyAtMi4xODY2LC0wLjExNzA0IC0yLjE4NjYsLTEuMjM2MDZsMCwtMTMuMDk0NzhjMCwtMS4xMTcyNCAxLjIyNzE5LC0xLjc5MTEzIDIuMTg2NiwtMS4yMzQyOWwxMS4yODQxNCw2LjU0NzM5YTEuNDIyMjcsMS40MjIyNyAwIDAgMSAwLDIuNDcwMzUiLz4KIDwvZz4KPC9zdmc+);
+            display: inline-block;
+            transition: .1s ease-out;
+            margin-right: .5rem;
+            font-weight: normal;
+            line-height: 0;
+        }
+
+        details[open]>summary:first-of-type::before {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body style="max-width: 600px;">
+    <details name="animadoSemantico">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details name="animadoSemantico">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details name="animadoSemantico">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details name="animadoSemantico">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details class="play" name="animadoSemantico">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details class="play" name="animadoSemantico">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+</body>
+
+</html>

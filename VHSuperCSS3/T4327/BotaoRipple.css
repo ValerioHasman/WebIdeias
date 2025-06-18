@@ -1,0 +1,59 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    user-select: none;
+}
+
+.btn-ripple {
+    padding: 1rem;
+    background-color: rgb(218, 219, 231);
+    border: none;
+    border-radius: 5rem;
+    margin-bottom: .5rem;
+}
+
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+    outline-color: rgba(128, 128, 128, 0.5);
+    --vh-cor-fundo: rgba(0, 0, 0, 0.6);
+    --vh-tempo-final: 400ms;
+    --vh-efeito-inicial: 200ms ease-out;
+    --vh-efeito-final: var(--vh-tempo-final) linear(0 0%, -2 100%);
+    /* --vh-efeito-final: var(--vh-tempo-final) cubic-bezier(1, -4, 1, -4); */
+}
+
+.btn-ripple::before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    background-color: var(--vh-cor-fundo);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    min-width: 0;
+    min-height: 0;
+    box-shadow: 0 0 0 0 var(--vh-cor-fundo);
+    opacity: 0;
+    transition:
+    opacity var(--vh-tempo-final) ease-in,
+    min-width var(--vh-efeito-final),
+    min-height var(--vh-efeito-final),
+    box-shadow var(--vh-efeito-final);
+}
+
+.btn-ripple:active::before {
+    min-width: 150%;
+    min-height: 150%;
+    box-shadow: 0 0 3rem 3rem var(--vh-cor-fundo);
+    opacity: 1;
+    transition: all var(--vh-efeito-inicial);
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            user-select: none;
+        }
+
+        .detalhes {
+            --vh-cor-borda: #80808080;
+            --vh-tempo-animacao: 0.15s;
+            border: 1px solid var(--vh-cor-borda);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: .9rem;
+            interpolate-size: allow-keywords;
+        }
+
+        .detalhes>summary:first-of-type {
+            font-weight: bold;
+            padding: 0.5em;
+            transition: border-bottom 0s var(--vh-tempo-animacao);
+            border-bottom: 0px solid var(--vh-cor-borda);
+        }
+
+        .detalhes[open]>summary:first-of-type {
+            transition: border-bottom 0s;
+            border-bottom: 1px solid var(--vh-cor-borda);
+        }
+
+        .detalhes::details-content {
+            block-size: 0;
+            transition:
+                block-size var(--vh-tempo-animacao) ease-in-out,
+                content-visibility var(--vh-tempo-animacao) ease-in-out;
+            transition-behavior: allow-discrete;
+        }
+
+        .detalhes[open]::details-content {
+            block-size: auto;
+        }
+    </style>
+</head>
+
+<body style="max-width: 600px;">
+    <details name="animadoSemantico" class="detalhes">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details name="animadoSemantico" class="detalhes">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details name="animadoSemantico" class="detalhes">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details name="animadoSemantico" class="detalhes">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details name="animadoSemantico" class="detalhes">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+    <details name="animadoSemantico" class="detalhes">
+        <summary>Details</summary>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias commodi animi non dolorum beatae in,
+            aliquid cumque adipisci blanditiis sequi, enim dolor perspiciatis perferendis quis deleniti tempora atque
+            deserunt id?</div>
+    </details>
+</body>
+
+</html>

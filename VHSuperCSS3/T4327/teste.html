@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      background-color: rgb(255, 242, 0);
+      width: 50%;
+      height: 5rem;
+      transition: all 1s ease-in-out allow-discrete;
+    }
+
+    div:is(:active){
+      background-color: black;
+      transition: none;
+    }
+
+    div:active {
+      background-color: rgb(255, 0, 0);
+      width: 60%;
+    }
+
+    @starting-style {
+      div {
+        width: 20%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>
