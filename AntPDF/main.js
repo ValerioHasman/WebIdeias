@@ -42,10 +42,13 @@ function baixar() {
 }
 
 function aSuaPaginaEmString() {
+  /** @type {HTMLElement} */
   const copia = document.querySelector(":scope").cloneNode(true);
   copia.querySelectorAll("[remova]").forEach(e => {
     e.remove();
   });
+  copia.querySelector("body").classList.add("ql-snow");
+  copia.querySelector("body>div.container").classList.add("ql-editor");
   copia.querySelector("body>div.container").innerHTML = texto.innerHTML;
   return "<!doctype html>\n" + copia.outerHTML;
 }

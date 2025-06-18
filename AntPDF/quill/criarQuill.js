@@ -1,11 +1,17 @@
 const toolbarOptions = [
   [{ 'undo': 'customUndo' }, { 'redo': 'customRedo' }],
-  [{ 'header': [false, 1, 2, 3, 4, 5, 6] }],
   ['bold', 'italic', 'underline', 'strike'],
+  [{ 'size': ['small', false, 'large', 'huge'] }],
+  [{ 'font': [] }],
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
   [{ 'align': [] }],
-  ['link', 'blockquote'],
-  [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+  [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }],
+  [{ 'script': 'sub' }, { 'script': 'super' }],
   [{ 'indent': '-1' }, { 'indent': '+1' }],
+  [{ 'direction': 'rtl' }],
+  ['blockquote', 'code-block'],
+  ['link', 'image', 'video'],
+  [{ 'color': [] }, { 'background': [] }],
   ['clean']
 ];
 
