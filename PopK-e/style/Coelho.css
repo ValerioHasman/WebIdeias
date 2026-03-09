@@ -4,6 +4,7 @@
   border-radius: 50%;
   transition: .5s all;
   --bs-btn-active-bg: var(--bs-btn-bg);
+  --aceleracao: 1s;
 }
 
 .botao:hover,
@@ -21,7 +22,7 @@
 }
 
 .jogo {
-  transition: rotate .3s linear(0 0%, 1 16%, -1 32%, 1 48%, -1 64%, 1 80%, 0 100%);
+  transition: rotate .5s linear(0 0%, 1 16%, -1 32%, 1 48%, -1 64%, 1 80%, 0 100%);
   rotate: 0deg;
 }
 
@@ -51,7 +52,7 @@
 }
 
 .botao.coelhoPula .Coelho svg {
-  animation: sobe 1s cubic-bezier(0, .5, .5, 1), desce 1s 1s cubic-bezier(.5, 0, 1, .5);
+  animation: sobe var(--aceleracao) cubic-bezier(0, .5, .5, 1), desce var(--aceleracao) var(--aceleracao) cubic-bezier(.5, 0, 1, .5);
   transition: all 4s cubic-bezier(1, -4, 1, -4);
 }
 

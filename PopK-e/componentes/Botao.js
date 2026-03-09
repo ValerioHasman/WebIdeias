@@ -1,4 +1,4 @@
-import _ from "../../Reactive.js";
+import Elemento from "Elemento";
 import Aleatorio from "../Classes/Aleatorio.js";
 import Coelho from "../Classes/Coelho.js";
 
@@ -17,7 +17,7 @@ const audios = [
  * @param {import('../painel/Jogo.js').Jogo} jogo
  */
 export default function Botao(prop, jogo) {
-  const button = _.button({
+  const button = Elemento.button({
     className: "botao overflow-hidden btn btn-primary border-0 col-auto shadow",
     ...onTocado(jogo)
   },
@@ -45,6 +45,7 @@ function onTocado(jogo) {
         jogo.capture();
         RandSom();
       } else {
+        jogo.setErrar();
         audiosErro.play();
       }
     }

@@ -1,12 +1,12 @@
-import _ from "../../Reactive.js";
+import Elemento from "Elemento";
 import Aleatorio from "./Aleatorio.js";
 import SVGEmTexto from "./SVGEmTexto.js";
 
 const svg = new SVGEmTexto("imagens/Coelho.svg");
 
 export default function Coelho() {
-  const coelho = _.div({ style: { height: "100%" }, className: "Coelho" });
-  svg.addEventListener("load",()=>{atribuirCorAoCoelho(coelho)});
+  const coelho = Elemento.div({ style: { height: "100%" }, className: "Coelho" });
+  atribuirCorAoCoelho(coelho)
   return coelho;
 }
 

@@ -1,13 +1,10 @@
-import _ from "../Reactive.js";
+import Elemento from "Elemento";
 import DialogInstalar from "./componentes/DialogInstalar.js";
 import DialogStart from "./componentes/DialogStart.js";
-import Jogo from "./painel/Jogo.js";
 
 document.body.append(
-  _.div({ className: "h100vh tela" },
-    _.div({ className: "flex-grow" },
-      Jogo()
-    )
+  Elemento.div({ className: "h100vh tela" },
+    Elemento.div({ className: "flex-grow container-jogo" })
   ),
   DialogStart(),
   DialogInstalar(),

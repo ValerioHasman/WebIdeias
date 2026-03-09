@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2024",
+    "module": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "Elemento": ["./Elemento.js"],
+      "bootstrap": ["./node_modules/bootstrap/dist/js/bootstrap.esm.min.js"]
+    }
+  },
+  "include": ["**/*.js"]
+}

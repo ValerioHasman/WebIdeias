@@ -1,8 +1,49 @@
+@import url(../node_modules/bootstrap-icons/font/bootstrap-icons.css);
+@import url(../node_modules/bootstrap/dist/css/bootstrap.min.css);
 @import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
 @import url(telaDeInicializacao.css);
 @import url(button.css);
 @import url(dialog.css);
 @import url(Coelho.css);
+
+.tela-trincada {
+  position: fixed;
+  pointer-events: none;
+
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background: var(--imagem-quebrada) no-repeat center center;
+  background-size: cover;
+
+}
+
+.trincada-2 {
+  --imagem-quebrada: url(../midias/trincado2.png);
+}
+
+.trincada-3 {
+  --imagem-quebrada: url(../midias/trincado3.png);
+}
+
+.trincada-4 {
+  --imagem-quebrada: url(../midias/trincado4.png);
+}
+
+.trincada-6 {
+  --imagem-quebrada: url(../midias/trincado6.png);
+}
+
+.trincada-7 {
+  --imagem-quebrada: url(../midias/trincado7.png);
+}
+
+.trincada-quebra-err {
+  --imagem-quebrada: url(../midias/quebra-err.png);
+}
+
 
 :root,
 [data-bs-theme=light] {

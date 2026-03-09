@@ -1,10 +1,10 @@
-import _ from "../../Reactive.js";
+import Elemento from "Elemento";
 
-const dlg = _.dialog({ className: "telaDePreferencia", },
-  _.h1({}, "Foco"),
-  _.p({}, "Requer foco, instale ou use tela cheia."),
-  _.button({ className: "vjButton border-0 inMenu", onclick: entrarEmTelaCheia },
-    _.span({}, "Tela cheia", _.i({ className: "ms-2 bi bi-fullscreen" }))
+const dlg = Elemento.dialog({ className: "telaDePreferencia", },
+  Elemento.h1({}, "Foco"),
+  Elemento.p({}, "Requer foco, instale ou use tela cheia."),
+  Elemento.button({ className: "vjButton border-0 inMenu", onclick: entrarEmTelaCheia },
+    Elemento.span({}, "Tela cheia", Elemento.i({ className: "ms-2 bi bi-fullscreen" }))
   ),
 );
 
@@ -15,8 +15,8 @@ export default function DialogInstalar() {
 
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
-  const btnInstalar = _.button({ className: "vjButton border-0 inMenu", onclick: () => { event.prompt(); btnInstalar.remove(); } },
-    _.span({}, "Instalar", _.i({ className: "ms-2 bi bi-download" }))
+  const btnInstalar = Elemento.button({ className: "vjButton border-0 inMenu", onclick: () => { event.prompt(); btnInstalar.remove(); } },
+    Elemento.span({}, "Instalar", Elemento.i({ className: "ms-2 bi bi-download" }))
   )
   dlg.append(btnInstalar);
   event.userChoice

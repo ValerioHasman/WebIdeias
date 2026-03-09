@@ -1,11 +1,11 @@
-import R from "../../Reactive.js";
+import Elemento from "Elemento";
 
 export default class Placar {
   /** @type {HTMLDivElement} */ #div;
   /** @type {HTMLSpanElement} */ #valor;
   constructor() {
-    this.#valor = R.span();
-    this.#div = R.div({ className: "placar" },
+    this.#valor = Elemento.span();
+    this.#div = Elemento.div({ className: "placar" },
       this.#valor
     );
   }
