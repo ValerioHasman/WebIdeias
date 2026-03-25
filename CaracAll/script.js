@@ -1,4 +1,5 @@
-import _ from "../Reactive.js";
+import _ from "./Elemento.js";
+import ToastSimples from "./Toast.js";
 
 document.body.append(
   _.div({},
@@ -82,8 +83,13 @@ document.body.append(
         )
       )
     ),
-    _.section({ className: "container-fluid py-3 fs-6" },
-      _.pre({ className: "fs-5", style: { tabSize: 12, whiteSpace: "pre-wrap" }, id: "container" })
+    _.section({ className: "container-fluid py-3" },
+      _.div(
+        {
+          className: "d-flex justify-content-center flex-wrap gap-1",
+          id: "container"
+        }
+      )
     )
   )
 );
@@ -97,7 +103,7 @@ function menos() {
 }
 
 /** @param {PointerEvent} event */
-function recalcularPara(event){
+function recalcularPara(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
   exibir(formData.get("caracAll").codePointAt(), 0);
@@ -114,13 +120,51 @@ function recalcular(event) {
   }, 0);
 }
 
+/**
+ * Copia texto para a área de transferência do cliente
+ * @param {string} texto - O texto a ser copiado
+ * @returns {Promise<boolean>} - Retorna true se copiou com sucesso
+ */
+async function copiarParaAreaDeTransferencia(texto) {
+  try {
+    await navigator.clipboard.writeText(texto);
+    return true;
+  } catch (erro) {
+    console.error(erro);
+    return false;
+  }
+}
+
 function exibir(next = 0, intervalo = 0) {
   next = Number.parseInt(next);
   intervalo = Number.parseInt(intervalo);
   remover();
   for (let i = next; i <= (next + intervalo) && i < 1114112; i++) {
+    const caractere = String.fromCodePoint(i);
     container.append(
-      _.span({ style: {display: "inline-block"} },`${i}: ${String.fromCodePoint(i)}\t`)
+      _.button(
+        {
+          className: "btn btn-outline-secondary rounded-3 border-0 botao-largura-fixa",
+          onclick: async () => {
+            const copiado = await copiarParaAreaDeTransferencia(caractere);
+            if (copiado) {
+              ToastSimples(`Caractere "${caractere}" copiado!`);
+            }
+          }
+        },
+        _.span(
+          {
+            className: "font-monospace"
+          },
+          `${i}: `
+        ),
+        _.span(
+          {
+            className: "fs-5 lh-1"
+          },
+          caractere
+        )
+      )
     )
   }
 }
