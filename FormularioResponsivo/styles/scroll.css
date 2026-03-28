@@ -1,17 +1,13 @@
-::-webkit-scrollbar {
-  max-width: 5px;
-  max-height: 5px;
+:root,
+[data-bs-theme=light] {
+  --scroll-bar-color: #63636380;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+[data-bs-theme=dark] {
+  --scroll-bar-color: #D1D1D180;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #80808080;
-  border-radius: 1rem;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #808080;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-bar-color) transparent;
 }

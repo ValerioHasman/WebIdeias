@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content, user-scalable=no" />
   <title>Melhor Formulário</title>
   <link rel="shortcut icon" href="favicon.png" type="image/png" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="index.css" />
+  <script type="module" src="./script.js"></script>
 </head>
 
-<body class="vh-100 text-break">
+<body class="dvh-100 text-break">
   <form class="h-100 d-flex flex-column overflow-hidden" action="#enviado" method="get">
     <header class="flex-grow-0 bg-body-tertiary">
       <div class="container">
@@ -30,7 +31,7 @@
       </div>
     </header>
     <main class="flex-grow-1 overflow-x-auto overflow-y-hidden d-flex scroll-snap-type-x-mandatory">
-      <div class="w-100 mx-5 flex-none scroll-snap-align-always overflow-x-auto">
+      <div class="w-100 flex-shrink-0 scroll-snap-align-always overflow-x-auto">
         <div class="container py-5" id="texto">
           <div class="row margem-dinamica">
             <h1>Melhor Formulário</h1>
@@ -92,7 +93,7 @@
           </div>
         </div>
       </div>
-      <div class="w-100 mx-5 flex-none scroll-snap-align-always overflow-x-auto">
+      <div class="w-100 flex-shrink-0 scroll-snap-align-always overflow-x-auto">
         <div class="container py-5" id="configuracao">
           <div class="row margem-dinamica">
             <h2 class="col-12">Configurações</h2>
@@ -123,42 +124,6 @@
               <label class="form-check form-switch">
                 <input class="form-check-input" checked type="checkbox" role="switch" id="scrollbehavior" />
                 <div class="form-check-label">Rolagem suave <code>scroll-behavior: smooth;</code></div>
-              </label>
-            </div>
-            <div class="col-12">
-              <label class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="inputtransition" />
-                <div class="form-check-label">Desativar trandição da altura do <code>body</code> ao abrir <code>input</code></div>
-              </label>
-            </div>
-            <div class="col-12">
-              <div>Transição da altura da página</div>
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="transition" value="1" checked />
-                <div class="form-check-label">0ms</div>
-              </label>
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="transition" value="2" />
-                <div class="form-check-label">150ms</div>
-              </label>
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="transition" value="3" />
-                <div class="form-check-label">500ms</div>
-              </label>
-            </div>
-            <div class="col-12">
-              <div>Atraso na transição da altura da página</div>
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="atraso" value="1" checked />
-                <div class="form-check-label">0ms</div>
-              </label>
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="atraso" value="2" />
-                <div class="form-check-label">150ms</div>
-              </label>
-              <label class="form-check">
-                <input class="form-check-input" type="radio" name="atraso" value="3" />
-                <div class="form-check-label">500ms</div>
               </label>
             </div>
             <hr />
@@ -223,7 +188,7 @@
           </div>
         </div>
       </div>
-      <div class="w-100 mx-5 flex-none scroll-snap-align-always overflow-x-auto">
+      <div class="w-100 flex-shrink-0 scroll-snap-align-always overflow-x-auto">
         <div class="container py-5" id="dados">
           <h2>Dados</h2>
           <div class="row margem-dinamica">
