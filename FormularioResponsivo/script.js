@@ -19,8 +19,8 @@ function injetaInputs() {
 
   const types = [
     { name: "number", type: "number", className: "form-control", step: "any" },
-    { name: "time", type: "time", className: "form-control", step: 0.3 },
-    { name: "datetime-local", type: "datetime-local", className: "form-control", step: 0.3 },
+    { name: "time", type: "time", className: "form-control", step: 0.001 },
+    { name: "datetime-local", type: "datetime-local", className: "form-control", step: 0.001 },
     { name: "date", type: "date", className: "form-control" },
     { name: "week", type: "week", className: "form-control" },
     { name: "month", type: "month", className: "form-control" },
