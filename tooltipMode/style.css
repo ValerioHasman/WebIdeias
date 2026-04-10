@@ -1,0 +1,44 @@
+[data-dica-ferramenta] {
+
+  &::after {
+    content: attr(data-dica-ferramenta);
+    position: fixed;
+    pointer-events: none;
+    box-shadow: var(--bs-box-shadow-sm);
+    border-radius: var(--bs-border-radius);
+    padding: 0.25rem .5rem;
+    margin: .4rem;
+    font-size: smaller;
+    background-color: var(--bs-emphasis-color);
+    color: var(--bs-body-bg);
+    text-align: left;
+    white-space: pre-wrap;
+    max-width: 50vw;
+    max-height: 50vh;
+    overflow: hidden;
+
+    position-anchor: auto;
+    position-area: top;
+    position-try: bottom, right, left;
+    position-try-fallbacks: bottom, right, left;
+
+    opacity: 0;
+    display: none;
+
+    transition-property: opacity, display;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    transition-behavior: allow-discrete;
+
+  }
+
+  &:hover::after,
+  &:focus::after {
+    display: block;
+    opacity: 0.9;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}

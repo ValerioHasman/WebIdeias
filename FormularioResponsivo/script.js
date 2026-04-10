@@ -1,3 +1,5 @@
+import { inputCPF } from "./InputCPF.js";
+
 function defineTema() {
   const temaDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const htmlRoot = document.querySelector("html");
@@ -105,3 +107,12 @@ function input(props = {}, ...filhos) {
 
   return div
 }
+
+const inm = document.querySelector("#configuracao > div > div:nth-child(17) > label > input");
+
+inm.insertAdjacentElement(
+  "afterend",
+  inputCPF(
+    { className: "form-control" }
+  )
+)
