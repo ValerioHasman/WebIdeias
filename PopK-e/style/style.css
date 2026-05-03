@@ -102,8 +102,5 @@ dialog {
   font-weight: 500;
   font-size: xxx-large;
   font-style: italic;
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
   color: rgb(58, 0, 108);
 }
