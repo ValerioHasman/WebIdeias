@@ -34,3 +34,9 @@ label:has(input:required) :where(div, span):not(:has(>*))::after {
 label {
   user-select: none;
 }
+
+@media (max-width: 767.98px) {
+  header {
+    order: 1;
+  }
+}
