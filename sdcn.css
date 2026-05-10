@@ -1,0 +1,79 @@
+[popover]:where(:not(:popover-open)) {
+  display: none !important;
+}
+
+.popover-on {
+
+  transition-property: all;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-behavior: allow-discrete;
+
+  opacity: 0;
+  scale: 0.8;
+
+  &:popover-open {
+    opacity: 1;
+    scale: 1;
+
+    @starting-style {
+      opacity: 0;
+      scale: 0.8;
+    }
+  }
+}
+
+.ancorado-ao-botao {
+  min-width: min-content;
+  max-height: -webkit-fill-available;
+  max-width: -webkit-fill-available;
+  position: fixed;
+  inset: unset;
+  position-area: span-right top;
+  position-try-fallbacks:
+    span-left top,
+    self-block-end center,
+    self-block-start center,
+    span-right bottom,
+    span-left bottom;
+}
+
+.modaldialogo {
+  background-color: transparent;
+  max-height: unset;
+  max-width: unset;
+  height: 100%;
+  width: 100%;
+  border: none;
+  overflow: hidden;
+}
+
+.modaldialogo {
+  transition: all 150ms ease-out allow-discrete;
+
+  @starting-style {
+    opacity: 0;
+    scale: .9;
+  }
+}
+
+.modaldialogo:not([open]) {
+  opacity: 0;
+  scale: .9;
+}
+
+.modaldialogo::backdrop {
+  transition: all 150ms ease-out allow-discrete;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.modaldialogo:not([open])::backdrop {
+  opacity: 0;
+}
+
+textarea {
+  max-width: 100%;
+}

@@ -9,6 +9,14 @@
       element.a(props);
       return element;
     }
+
+    function execute(it, ...funs) {
+      for (const fun of funs)
+        fun(it);
+      return it;
+    }
+
+
     function a(nvsProps, paraObj, pai) {
       const esteElmt = this ?? paraObj;
       for (const prop in nvsProps) {
@@ -63,43 +71,89 @@
         style: {
           resize: "both"
         },
-        rows: 5
+        rows: 5,
+        cols: 50
       }
     );
 
-    function aplicarPopOver() {
-      
+    function criarSugestoes(texto, pos) {
+      const esquerda = texto.slice(0, pos);
+      const tokenMatch = /(?:^|\s)([\w$\.]+)$/.exec(esquerda);
+      if (!tokenMatch) return [];
+
+      const token = tokenMatch[1];
+      const ultimaParte = token.includes('.') ? token.slice(token.lastIndexOf('.') + 1) : token;
+      const objectPath = token.includes('.') ? token.slice(0, token.lastIndexOf('.')) : null;
+
+      if (objectPath) {
+        try {
+          const objeto = Function(`"use strict"; return ${objectPath}`)();
+          if (objeto != null && (typeof objeto === 'object' || typeof objeto === 'function')) {
+            return Object.getOwnPropertyNames(objeto).filter(prop => prop.startsWith(ultimaParte));
+          }
+        } catch (err) {
+          // objeto não existe ou não pode ser avaliado
+        }
+      }
+
+      return lista.filter(palavra => palavra.startsWith(ultimaParte));
+    }
+
+    function aplicarSugestao(nome) {
+      const pos = textarea.selectionStart;
+      const texto = textarea.value;
+      const esquerda = texto.slice(0, pos);
+      const direita = texto.slice(pos);
+      const tokenMatch = /(?:^|\s)([\w$\.]+)$/.exec(esquerda);
+
+      if (!tokenMatch) {
+        textarea.value = esquerda + nome + direita;
+        textarea.selectionStart = textarea.selectionEnd = esquerda.length + nome.length;
+        return;
+      }
+
+      const token = tokenMatch[1];
+      const prefixo = token.includes('.')
+        ? esquerda.slice(0, esquerda.length - token.length + token.lastIndexOf('.') + 1)
+        : esquerda.slice(0, esquerda.length - token.length);
+      const novoTexto = prefixo + nome + direita;
+      const novoPos = prefixo.length + nome.length;
+
+      textarea.value = novoTexto;
+      textarea.selectionStart = textarea.selectionEnd = novoPos;
     }
 
     const lista = Object.getOwnPropertyNames(globalThis).sort();
 
     const listGroup = _div(
-      { className: "list-group" }
+      {
+        className: "list-group border shadow-sm p-1 rounded-3",
+      }
     );
+
+    let valorRecuperar;
 
     textarea.addEventListener(
       "input",
       () => {
+        listGroup.showPopover();
         const pos = textarea.selectionStart;
         const texto = textarea.value;
 
         const esquerda = texto.slice(0, pos);
 
-        const palavras = esquerda.split(/\s+/);
-        const ultimaPalavra = palavras[palavras.length - 1];
-
-        console.log(ultimaPalavra);
-
-        const meus = lista.filter(palavra => palavra.startsWith(ultimaPalavra));
-
-        console.log(meus);
+        const sugestoes = criarSugestoes(texto, pos);
 
         listGroup.replaceChildren(
-          ...meus.map(
+          ...sugestoes.map(
             nome => (
               _button(
                 {
-                  className: "list-group-item list-group-item-action py-0"
+                  className: "list-group-item list-group-item-action py-0",
+                  onclick: () => {
+                    aplicarSugestao(nome);
+                    listGroup.hidePopover();
+                  }
                 },
                 nome
               )
@@ -110,59 +164,91 @@
       }
     );
 
-    const content = _div();
-
+    const content = _div({ className: "d-flex flex-column gap-1" });
 
     const dialog = _dialog(
       {
-        className: "border rounded-3"
+        className: "modaldialogo"
       },
       _div(
-        {},
-        content
-      ),
-      _div(
-        {},
-        "Executar:"
-      ),
-      textarea,
-      _div(
-        {
-          className: "d-flex mt-3 gap-3"
-        },
-        _button(
-          {
-            className: "btn btn-secondary",
-            onclick: () => {
-              dialog.close();
-            }
-          },
-          "Fechar"
-        ),
-        _button(
-          {
-            className: "btn btn-secondary",
-            onclick: () => {
-              const valor = textarea.value;
-              textarea.value = "";
-              eval(valor);
-            }
-          },
-          "Executar"
+        { className: "d-flex h-100" },
+        _div(
+          { className: "d-flex flex-column mh-100 m-auto bg-body card p-3 gap-2" },
+          _div(
+            {
+              className: "overflow-auto"
+            },
+            content
+          ),
+          ...aplicarAncoraPopOver(
+            _div(
+              {},
+              textarea,
+            ),
+            listGroup
+          ),
+          _div(
+            {
+              className: "d-flex mt-2 gap-3 justify-content-end"
+            },
+            _button(
+              {
+                className: "btn btn-secondary",
+                onclick: () => {
+                  dialog.close();
+                }
+              },
+              "Fechar"
+            ),
+            _button(
+              {
+                className: "btn btn-secondary",
+                onclick: () => {
+                  const valor = textarea.value;
+                  textarea.value = "";
+                  valorRecuperar = valor;
+                  eval(valor);
+                }
+              },
+              "Executar"
+            )
+          )
         )
       )
     );
 
     function adicionarAoPainel(msg, type) {
+      const value = valorRecuperar;
+      valorRecuperar = null;
       content.appendChild(
         _div(
-          {},
-          _pre(
-            {
-              className: `bg-${type}-subtle border-bottom m-0`
-            },
-            objetoTextoSimplificado(msg).trimStart()
-          )
+          { className: "d-flex" },
+          execute(
+            _pre(
+              {
+                className: `bg-${type}-subtle border-bottom m-0 p-1 col rounded-1`
+              },
+              objetoTextoSimplificado(msg).trimStart()
+            ),
+            (pre) => {
+              setTimeout(() => {
+                pre.scrollIntoView();
+              });
+            }
+          ),
+          value ? _div(
+            {},
+            _button(
+              {
+                className: "btn btn-info btn-sm fs-4 ms-1 lh-1 sticky-top ",
+                onclick: () => {
+                  textarea.value = value;
+                }
+              },
+              "⟲"
+            )
+          ) :
+            document.createDocumentFragment()
         )
       );
     }
@@ -189,6 +275,9 @@
     function objetoTextoSimplificado(objeto, indentacao = 0) {
 
       if (objeto && typeof objeto === "object") {
+        if (objeto instanceof Node)
+          return objeto.constructor.name;
+
         const lista = [];
 
         for (const propriedade in objeto) {
@@ -243,7 +332,28 @@
       )
     );
 
-    dialog.showModal();
-
+    // dialog.showModal();
   }
 )();
+
+
+function aplicarAncoraPopOver(input, recipiente) {
+  const id = crypto.randomUUID();
+
+  input.style.setProperty("anchor-name", `--${id}`);
+
+  recipiente.classList.add("popover-on", "ancorado-ao-botao");
+  recipiente.id = id;
+  recipiente.popover = "auto";
+  recipiente.style.setProperty("position-anchor", `--${id}`);
+
+  input.addEventListener(
+    "click",
+    () => {
+      recipiente.showPopover();
+    }
+  );
+
+  return [input, recipiente]
+
+}
