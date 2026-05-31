@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-br" class="scroll-snap-type-x-mandatory">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content, user-scalable=no" />
+  <title>Convite</title>
+  <link rel="icon" href="./favicon.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="module" src="./script.js"></script>
+  <style>
+    .convite-header {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    
+    .convite-header h1 {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    
+    .convite-header p {
+      font-size: 1.25rem;
+      color: #666;
+      font-style: italic;
+    }
+    
+    .convite-info {
+      margin: 2rem 0;
+      padding: 2rem;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+    }
+    
+    .convite-info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+    
+    .convite-info-item i {
+      font-size: 1.5rem;
+      color: #007bff;
+      width: 30px;
+    }
+    
+    .convite-info-item strong {
+      min-width: 100px;
+    }
+    
+    .convite-divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, #dee2e6, transparent);
+      margin: 2rem 0;
+    }
+    
+    .convite-footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 2px solid #dee2e6;
+    }
+    
+    .convite-button {
+      margin: 1rem 0.5rem;
+      padding: 0.75rem 2rem;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .convite-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+
+<body class="scroll-snap-type-x-mandatory">
+  <!-- Página 1: Capa do Convite -->
+  <section class="scroll-snap-align-always bg-body">
+    <div class="expansiva bg-body-secondary"></div>
+    <div class="container mdvh-100 py-4 d-flex align-items-center justify-content-center">
+      <div class="convite-header">
+        <h1>Você está convidado</h1>
+        <p>Para celebrar conosco um momento especial</p>
+        <div class="convite-divider"></div>
+        <p style="font-size: 1.1rem; color: #333; margin-top: 2rem;">
+          Deslize para mais informações →
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Página 2: Detalhes do Evento -->
+  <section class="scroll-snap-align-always bg-body-secondary">
+    <div class="container mdvh-100 py-4 d-flex align-items-center">
+      <div class="w-100">
+        <h2 class="text-center mb-4">Detalhes do Evento</h2>
+        
+        <div class="convite-info">
+          <div class="convite-info-item">
+            <i class="bi bi-calendar-event"></i>
+            <div>
+              <strong>Data:</strong>
+              <span>Sábado, 15 de Junho de 2024</span>
+            </div>
+          </div>
+          
+          <div class="convite-info-item">
+            <i class="bi bi-clock"></i>
+            <div>
+              <strong>Horário:</strong>
+              <span>19h30 - Coquetel às 19h00</span>
+            </div>
+          </div>
+          
+          <div class="convite-info-item">
+            <i class="bi bi-geo-alt"></i>
+            <div>
+              <strong>Local:</strong>
+              <span>
+                Salão de Festas Elegância<br/>
+                Rua das Flores, 123 - Centro
+              </span>
+            </div>
+          </div>
+          
+          <div class="convite-info-item">
+            <i class="bi bi-person-check"></i>
+            <div>
+              <strong>Confirmação:</strong>
+              <span>Até 10 de Junho</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="alert alert-info mt-4" role="alert">
+          <i class="bi bi-info-circle me-2"></i>
+          <strong>Informação:</strong> Traje social
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Página 3: Chamada para Ação -->
+  <section class="scroll-snap-align-always bg-body-tertiary">
+    <div class="container mdvh-100 py-4 d-flex align-items-center justify-content-center">
+      <div class="text-center w-100">
+        <h2 class="mb-4">Queremos sua presença!</h2>
+        
+        <p class="lead mb-4">
+          Sua presença é muito importante para nós e tornará este momento ainda mais especial.
+        </p>
+        
+        <div class="convite-info">
+          <h5 class="mb-3">Para confirmar sua presença</h5>
+          <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+            <a href="tel:+5511999999999" class="btn btn-primary convite-button">
+              <i class="bi bi-telephone me-2"></i>Ligar
+            </a>
+            <a href="https://wa.me/5511999999999?text=Olá%2C%20gostaria%20de%20confirmar%20minha%20presença%20no%20convite" class="btn btn-success convite-button">
+              <i class="bi bi-whatsapp me-2"></i>WhatsApp
+            </a>
+            <a href="mailto:convite@example.com" class="btn btn-info convite-button">
+              <i class="bi bi-envelope me-2"></i>Email
+            </a>
+          </div>
+        </div>
+        
+        <div class="convite-footer">
+          <p class="text-muted small">
+            Adoraríamos tê-lo conosco nesta celebração!<br/>
+            Agradecemos sua compreensão e participação.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

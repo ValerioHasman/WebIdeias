@@ -1,0 +1,17 @@
+@import url(estilo-bootstrap-valerio.css);
+
+.mdvh-100 {
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+}
+
+.expansiva {
+  width: stretch;
+  background-color: darkgreen;
+  transition: height 300ms 300ms ease-out;
+  height: 0;
+
+  @starting-style {
+    height: 100vh;
+  }
+}

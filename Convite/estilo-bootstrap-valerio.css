@@ -1,0 +1,22 @@
+:root,
+[data-bs-theme=light] {
+  --scroll-bar-color: #63636380;
+}
+
+[data-bs-theme=dark] {
+  --scroll-bar-color: #D1D1D180;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-bar-color) transparent;
+}
+
+.scroll-snap-type-x-mandatory {
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-snap-align-always {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
