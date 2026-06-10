@@ -228,7 +228,7 @@
               {
                 className: `bg-${type}-subtle border-bottom m-0 p-1 col rounded-1`
               },
-              objetoTextoSimplificado(msg).trimStart()
+              objetoTexto(msg)
             ),
             (pre) => {
               setTimeout(() => {
@@ -272,29 +272,39 @@
 
     }
 
-    function objetoTextoSimplificado(objeto, indentacao = 0) {
+    function objetoTexto(objeto) {
+      const listagem = new Set();
 
-      if (objeto && typeof objeto === "object") {
-        if (objeto instanceof Node)
-          return objeto.constructor.name;
+      function objetoTextoSimplificado(objeto, indentacao = 0) {
 
-        const lista = [];
+        if (objeto && typeof objeto === "object") {
+          const lista = [];
 
-        for (const propriedade in objeto) {
-          lista.push(
-            `\n${indentar(indentacao)}${propriedade}: ${objetoTextoSimplificado(objeto[propriedade], indentacao + 1)}`
-          );
+          if (listagem.has(objeto))
+            return `${objeto}`;
+
+          listagem.add(objeto);
+
+          for (const propriedade in objeto) {
+            lista.push(
+              `\n${indentar(indentacao)}${propriedade}: ${objetoTextoSimplificado(objeto[propriedade], indentacao + 1)}`
+            );
+          }
+
+          return lista.join('');
         }
 
-        return lista.join('');
+        return `${objeto}`;
       }
 
-      return `${objeto}`;
+      function indentar(n = 0) {
+        return ('  '.repeat(n));
+      }
+
+      return objetoTextoSimplificado(objeto).trimStart();
     }
 
-    function indentar(n = 0) {
-      return ('  '.repeat(n));
-    }
+
 
     window.onerror = function (event, source, lineno, colno, error) {
       adicionarAoPainel(

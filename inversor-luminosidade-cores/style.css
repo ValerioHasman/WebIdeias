@@ -1,0 +1,36 @@
+@import url(popover-on-ancorado-ao-botao-cor.css);
+@import url(input-range-slider-runnable-track.css);
+
+form :invalid {
+  border-color: var(--bs-form-invalid-border-color);
+}
+
+form :invalid:focus {
+  border-color: var(--bs-form-invalid-border-color);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-danger-rgb), 0.25);
+}
+
+label:has(input:required) :where(div, span):not(:has(>*))::after {
+  content: " *";
+  color: rgba(var(--bs-danger-rgb));
+}
+
+:root,
+[data-bs-theme=light] {
+  --cartao-cor: transparent;
+  --cartao-color: var(--bs-body-color);
+
+  --cartao-cor-dark: transparent;
+  --cartao-color-dark: var(--bs-body-color);
+
+}
+
+.cartao-cor {
+  color: var(--cartao-color);
+  background-color: var(--cartao-cor);
+}
+
+.cartao-cor-dark {
+  color: var(--cartao-color-dark);
+  background-color: var(--cartao-cor-dark);
+}

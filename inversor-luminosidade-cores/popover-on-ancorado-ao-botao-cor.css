@@ -1,0 +1,37 @@
+.popover-on-cor {
+
+  transition-property: opacity, scale, display, overlay;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-behavior: allow-discrete;
+
+  opacity: 0;
+  scale: 0.8;
+
+  &:popover-open {
+    opacity: 1;
+    scale: 1;
+
+    @starting-style {
+      opacity: 0;
+      scale: 0.8;
+    }
+  }
+}
+
+.ancorado-ao-botao-cor {
+  margin: 0;
+  min-width: min-content;
+  max-height: -webkit-fill-available;
+  max-width: -webkit-fill-available;
+  position: fixed;
+  inset: unset;
+  position-area: span-right bottom;
+  position-try-order: most-height;
+  position-try-fallbacks:
+    span-left bottom,
+    span-left top,
+    span-right top,
+    bottom,
+    top;
+}
