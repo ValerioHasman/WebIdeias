@@ -4,7 +4,7 @@ const textArea = document.querySelector("[name=mensagem]");
 
 form.addEventListener("submit", enviarMensagem);
 
-textArea.addEventListener("input", (event) => { redimensionarTextArea(event.target) })
+// textArea.addEventListener("input", (event) => { redimensionarTextArea(event.target) })
 
 
 /** @param {SubmitEvent} event */
