@@ -23,7 +23,12 @@ function adicionaAoConteudo(texto) {
   const paragrafo = document.createElement("p");
   paragrafo.innerText = texto;
   conteudo.append(paragrafo);
-  descer();
+  paragrafo.scrollIntoView(
+    {
+      block: "start",
+      behavior: "smooth"
+    }
+  )
 }
 
 /** @param {HTMLTextAreaElement} areaDeTexto */
@@ -32,11 +37,4 @@ function redimensionarTextArea(areaDeTexto) {
   const lineHeight = Number.parseInt(window.getComputedStyle(areaDeTexto).lineHeight, 10);
   const newRows = Math.trunc(areaDeTexto.scrollHeight / lineHeight);
   areaDeTexto.rows = newRows > 6 ? 6 : newRows;
-}
-
-function descer(){
-  conteudo.scroll({
-    top: conteudo.scrollHeight,
-    behavior: "smooth",
-  })
 }

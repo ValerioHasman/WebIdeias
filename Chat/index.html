@@ -14,16 +14,20 @@
 </head>
 
 <body>
-  <div class="chat">
-    <div id="cabeca" class="p-2 bg-secondary-subtle">
+  <div class="d-flex h-100 flex-column">
+    <div class="p-2 bg-body-tertiary">
       <img src="./favicon.png" alt="Ícone" />
       <span>Monólogo</span>
     </div>
-    <div id="conteudo"></div>
-    <form id="form" class="input-group p-2 bg-secondary-subtle">
-      <textarea name="mensagem" rows="1" class="form-control" placeholder="Enviar mensagem" required></textarea>
-      <button type="submit" class="btn btn-primary"><i class="bi bi-send-fill"></i></button>
-    </form>
+    <div id="conteudo" class="overflow-auto d-flex flex-column flex-grow-1"></div>
+    <div class="p-2 bg-body-tertiary flex-grow-0">
+      <form id="form">
+        <label class="input-group bg-body rounded-3 border">
+          <textarea name="mensagem" rows="1" class="form-control border-0 m-1" placeholder="Enviar mensagem" required></textarea>
+          <button type="submit" class="btn btn-outline-primary border-0 m-1 rounded-3" style="--bs-btn-bg: var(--bs-body-bg);"><i class="bi bi-send-fill"></i></button>
+        </label>
+      </form>
+    </div>
   </div>
 </body>
 
