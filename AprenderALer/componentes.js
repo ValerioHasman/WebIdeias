@@ -86,7 +86,7 @@ export function alfabeto() {
           lista.push(
             Elemento.button(
               {
-                className: "btn btn-outline-secondary border-0",
+                className: "btn btn-outline-danger border-0",
                 onclick: apagar
               },
               "APAGAR"

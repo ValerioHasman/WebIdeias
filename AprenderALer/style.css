@@ -25,6 +25,11 @@
   --bs-btn-color: var(--bs-body-color)
 }
 
+.estilo-botao .btn-outline-danger {
+  --bs-btn-bg: var(--bs-danger-bg-subtle);
+  --bs-btn-color: var(--bs-body-color)
+}
+
 
 :has([value="maiusculo"]:checked) {
   .fonte-custom {
