@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+BR+Guides&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+BR:wght@100..400&display=swap');
 
+:root {
+  overscroll-behavior: contain;
+  --bs-border-radius: 0.5rem;
+  --bs-border-radius-sm: 0.5rem;
+}
+
 .playwrite-br-guides-regular {
   font-family: "Playwrite BR Guides", cursive;
   font-weight: 400;
@@ -11,36 +17,22 @@
 .playwrite-br {
   font-family: "Playwrite BR", cursive;
   font-optical-sizing: auto;
-  font-weight: 100;
   font-style: normal;
 }
 
-.botao {
-  padding: 2rem;
-  background-color: transparent;
-  transition: background-color 150ms, color 150ms;
-  border-radius: 1rem;
-  border: none;
-}
-
-.botao:focus-visible {
-  background-color: rgba(95, 158, 160, 0.195);
-}
-
-.botao:active{
-  transition: background-color 0s, color 0s;
-  color: white;
-  background-color: cadetblue;
+.estilo-botao .btn-outline-secondary {
+  --bs-btn-bg: var(--bs-secondary-bg-subtle);
+  --bs-btn-color: var(--bs-body-color)
 }
 
 
-:has(#maiusculo:checked) {
+:has([value="maiusculo"]:checked) {
   .fonte-custom {
     text-transform: uppercase;
   }
 }
 
-:has(#cursivo:checked) {
+:has([value="cursivo"]:checked) {
   .fonte-custom {
     font-family: "Playwrite BR", cursive;
     font-optical-sizing: auto;
@@ -49,7 +41,7 @@
   }
 }
 
-:has(#grafia:checked) {
+:has([value="caligrafia"]:checked) {
   .fonte-custom {
     font-family: "Playwrite BR Guides", cursive;
     font-weight: 400;
@@ -58,5 +50,11 @@
 }
 
 .vh-100 {
+  height: 100vh !important;
   height: 100dvh !important;
+}
+
+.teclado {
+  max-width: 472px;
+  margin: auto;
 }
