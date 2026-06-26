@@ -1,0 +1,51 @@
+@import url(./estilos/scroll.css);
+@import url(./estilos/dialog.css);
+
+.meu-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--colunas-preferida, 5), 1fr);
+
+  .box {
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: var(--background-image);
+    transition: transform 0.3s ease;
+  }
+
+  .box:hover::before,
+  .box:focus-visible::before {
+    transform: scale(1.15);
+  }
+
+  .box:nth-of-type(odd) {
+    --background-image: url(./imagens/modelo2.png);
+  }
+
+  .box:nth-of-type(even) {
+    --background-image: url(./imagens/modelo.png);
+  }
+}
+
+
+.scroll-snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-snap-start-always {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.scale-transition {
+  transition: all .15s ease-out;
+}

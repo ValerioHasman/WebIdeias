@@ -53,6 +53,10 @@ const lista = [
   {
     "nome": "Inversor Luminosidade.",
     "pasta": "inversor-luminosidade-cores"
+  },
+  {
+    "nome": "Galeria.",
+    "pasta": "galeria"
   }
 ];
 

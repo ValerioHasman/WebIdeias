@@ -1,0 +1,52 @@
+dialog.dialog-html {
+  transition-behavior: allow-discrete;
+  transition-duration: .15s;
+  transition-timing-function: ease-out;
+  transition-property: opacity, display, overlay, scale;
+  overscroll-behavior: contain;
+  scale: 1;
+  opacity: 1;
+
+  &:not(:open) {
+    scale: 0.8;
+    opacity: 0;
+
+    &::backdrop {
+      opacity: 0;
+    }
+  }
+
+  &::backdrop {
+    backdrop-filter: blur(3px);
+    transition-behavior: allow-discrete;
+    transition-duration: inherit;
+    transition-timing-function: ease-in-out;
+    transition-property: opacity;
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  @starting-style {
+    scale: 0.8;
+    opacity: 0;
+  }
+}
+
+dialog.dialog-html.estruturado:open {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+dialog.dialog-html-full {
+  margin: 0;
+  height: stretch;
+  width: stretch;
+  max-width: stretch;
+  max-height: stretch;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
