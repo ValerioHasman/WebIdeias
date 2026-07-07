@@ -57,6 +57,10 @@ const lista = [
   {
     "nome": "Galeria.",
     "pasta": "galeria"
+  },
+  {
+    "nome": "Pesquisa no Google",
+    "pasta": "pesquisa-no-google"
   }
 ];
 
