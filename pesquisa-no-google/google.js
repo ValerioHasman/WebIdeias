@@ -69,7 +69,7 @@ function setGoogleShopping(text) {
   const param = new URLSearchParams();
   param.append("q", text);
   param.append("udm", 28);
-  googleShopping.href = destino + param + "#search";
+  googleShopping.href = destino + param + "#rso";
 }
 
 function setGoogleNoticias(text) {
@@ -109,7 +109,7 @@ function container(...f) {
 
 function listGroup(...f) {
   const div = document.createElement("div");
-  div.className = "list-group my-3";
+  div.className = "list-group my-3 gap-1";
   const frag = document.createDocumentFragment();
 
   for (const i of f) {
