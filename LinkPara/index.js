@@ -83,12 +83,12 @@ function inserirDadosBin(result, type) {
 
 /** @param {ArrayBuffer} result */
 function paraBase64bin(buffer) {
-  let binary = '';
+  const binary = [];
   const bytes = new Uint8Array(buffer);
   for (let i = 0; i < bytes.byteLength; i++) {
-    binary += String.fromCodePoint(bytes[i]);
+    binary.push(String.fromCodePoint(bytes[i]));
   }
-  return btoa(binary);
+  return btoa(binary.join(""));
 }
 
 function limpaResultado() {
