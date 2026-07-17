@@ -48,6 +48,7 @@ input.addEventListener(
 function setGoogle(text) {
   const param = new URLSearchParams();
   param.append("q", text);
+  param.append("udm", "web");
   google.href = destino + param;
 }
 
