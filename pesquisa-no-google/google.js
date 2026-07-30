@@ -2,16 +2,16 @@ const destino = `https://www.google.com/search?`;
 
 const input = inputSearch();
 
-const google = aBlank(googleIco(), "Pesquisa");
-const googleImagem = aBlank(googleIco(), "Imagens");
-const googleVideo = aBlank(googleIco(), "Vídeos");
-const googleShopping = aBlank(googleIco(), "Shopping");
-const googleNoticias = aBlank(googleIco(), "Noticias");
-const googleGemini = aBlank(googleIco(), "Gemini");
+const google = aBlank(googleIco("google"), "Pesquisa");
+const googleImagem = aBlank(googleIco("image"), "Imagens");
+const googleVideo = aBlank(googleIco("play"), "Vídeos");
+const googleShopping = aBlank(googleIco("cart4"), "Shopping");
+const googleNoticias = aBlank(googleIco("newspaper"), "Noticias");
+const googleGemini = aBlank(googleIco("robot"), "Gemini");
 
 document.body.append(
   container(
-    input,
+    form(input),
     listGroup(
       google,
       googleImagem,
@@ -35,13 +35,21 @@ input.addEventListener(
 
     const text = input.value.trim();
 
-    setGoogle(text);
-    setGoogleImagem(text);
-    setGoogleVideo(text);
-    setGoogleShopping(text);
-    setGoogleNoticias(text);
-    setGoogleGemini(text);
-
+    if (text) {
+      setGoogle(text);
+      setGoogleImagem(text);
+      setGoogleVideo(text);
+      setGoogleShopping(text);
+      setGoogleNoticias(text);
+      setGoogleGemini(text);
+    } else {
+      google.removeAttribute("href");
+      googleImagem.removeAttribute("href");
+      googleVideo.removeAttribute("href");
+      googleShopping.removeAttribute("href");
+      googleNoticias.removeAttribute("href");
+      googleGemini.removeAttribute("href");
+    }
   }
 );
 
@@ -103,7 +111,6 @@ function container(...f) {
   div.addEventListener(
     "click",
     () => { input.focus(); },
-    { once: true }
   )
   return div;
 }
@@ -128,13 +135,27 @@ function inputSearch() {
   input.className = "form-control rounded-3";
   input.type = "search";
   input.name = "q";
+  input.required = true;
   input.autofocus = true;
   return input;
 }
 
-function googleIco() {
+function form(...f) {
+  const form = document.createElement("form");
+  form.append(...f);
+  form.addEventListener(
+    'submit',
+    (ev) => {
+      ev.preventDefault();
+      google.click();
+    }
+  )
+  return form;
+}
+
+function googleIco(google) {
   const i = document.createElement("i");
-  i.className = "bi bi-google me-3";
+  i.className = `bi bi-${google} me-3`;
   return i;
 }
 

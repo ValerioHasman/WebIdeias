@@ -3,7 +3,7 @@
 
 .meu-grid {
   display: grid;
-  grid-template-columns: repeat(var(--colunas-preferida, 5), 1fr);
+  grid-template-columns: repeat(var(--colunas-preferida, 3), 1fr);
 
   .box {
     aspect-ratio: 1;
@@ -48,4 +48,10 @@
 
 .scale-transition {
   transition: all .15s ease-out;
+}
+
+
+.meu-grid>.box {
+  content-visibility: auto;
+  contain-intrinsic-size: 503.2px 503.2px;
 }
