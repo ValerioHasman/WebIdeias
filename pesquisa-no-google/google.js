@@ -2,26 +2,22 @@ const destino = `https://www.google.com/search?`;
 
 const input = inputSearch();
 
-const google = gg("google", "Pesquisa", "web");
-const googleImagem = gg("image", "Imagens", 2);
-const googleVideo = gg("play-btn", "Vídeos", 7);
-const googleVideo = gg("file-play", "Vídeos curtos", 39);
-const googleShopping = gg("cart4", "Shopping", 28);
-const googleNoticias = gg("newspaper", "Noticias", "nws");
-const googleLivros = gg("book", "Livros", 36);
-const googleGemini = gg("robot", "Gemini", 50);
+const links = [
+  gg("google", "Pesquisa", "web"),
+  gg("image", "Imagens", 2),
+  gg("play-btn", "Vídeos", 7),
+  gg("file-play", "Vídeos curtos", 39),
+  gg("cart4", "Shopping", 28),
+  gg("newspaper", "Noticias", "nws"),
+  gg("book", "Livros", 36),
+  gg("robot", "Gemini", 50),
+];
 
 document.body.append(
   container(
     form(input),
     listGroup(
-      google,
-      googleImagem,
-      googleVideo,
-      googleShopping,
-      googleNoticias,
-      googleLivros,
-      googleGemini,
+      ...links
     )
   )
 );
@@ -35,26 +31,14 @@ document.body.append(
 input.addEventListener(
   "input",
   () => {
-
     const text = input.value.trim();
 
-    if (text) {
-      google.setLink(text);
-      googleImagem.setLink(text);
-      googleVideo.setLink(text);
-      googleShopping.setLink(text);
-      googleNoticias.setLink(text);
-      googleLivros.setLink(text);
-      googleGemini.setLink(text);
-    } else {
-      google.removeAttribute("href");
-      googleImagem.removeAttribute("href");
-      googleVideo.removeAttribute("href");
-      googleShopping.removeAttribute("href");
-      googleNoticias.removeAttribute("href");
-      googleLivros.removeAttribute("href");
-      googleGemini.removeAttribute("href");
-    }
+    if (text)
+      for(const link of links)
+        link.setLink(text);
+    else
+      for(const link of links)
+        link.removeAttribute("href");
   }
 );
 
@@ -64,7 +48,7 @@ function gg(icone, label, target) {
     const param = new URLSearchParams();
     param.append("q", text);
     param.append("udm", target);
-    google.href = destino + param + "#rso";
+    a.href = destino + param + "#rso";
   }
   return a;
 }
@@ -117,9 +101,9 @@ function form(...f) {
     'submit',
     (ev) => {
       ev.preventDefault();
-      google.click();
+      links[0].click();
     }
-  )
+  );
   return form;
 }
 
@@ -135,7 +119,7 @@ function linkBlank() {
   return i;
 }
 
-document.body.addEventListener(
+document.documentElement.addEventListener(
   "click",
   () => { input.focus(); },
 );
