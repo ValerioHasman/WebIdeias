@@ -2,12 +2,14 @@ const destino = `https://www.google.com/search?`;
 
 const input = inputSearch();
 
-const google = aBlank(googleIco("google"), "Pesquisa");
-const googleImagem = aBlank(googleIco("image"), "Imagens");
-const googleVideo = aBlank(googleIco("play"), "Vídeos");
-const googleShopping = aBlank(googleIco("cart4"), "Shopping");
-const googleNoticias = aBlank(googleIco("newspaper"), "Noticias");
-const googleGemini = aBlank(googleIco("robot"), "Gemini");
+const google = gg("google", "Pesquisa", "web");
+const googleImagem = gg("image", "Imagens", 2);
+const googleVideo = gg("play-btn", "Vídeos", 7);
+const googleVideo = gg("file-play", "Vídeos curtos", 39);
+const googleShopping = gg("cart4", "Shopping", 28);
+const googleNoticias = gg("newspaper", "Noticias", "nws");
+const googleLivros = gg("book", "Livros", 36);
+const googleGemini = gg("robot", "Gemini", 50);
 
 document.body.append(
   container(
@@ -18,6 +20,7 @@ document.body.append(
       googleVideo,
       googleShopping,
       googleNoticias,
+      googleLivros,
       googleGemini,
     )
   )
@@ -36,68 +39,39 @@ input.addEventListener(
     const text = input.value.trim();
 
     if (text) {
-      setGoogle(text);
-      setGoogleImagem(text);
-      setGoogleVideo(text);
-      setGoogleShopping(text);
-      setGoogleNoticias(text);
-      setGoogleGemini(text);
+      google.setLink(text);
+      googleImagem.setLink(text);
+      googleVideo.setLink(text);
+      googleShopping.setLink(text);
+      googleNoticias.setLink(text);
+      googleLivros.setLink(text);
+      googleGemini.setLink(text);
     } else {
       google.removeAttribute("href");
       googleImagem.removeAttribute("href");
       googleVideo.removeAttribute("href");
       googleShopping.removeAttribute("href");
       googleNoticias.removeAttribute("href");
+      googleLivros.removeAttribute("href");
       googleGemini.removeAttribute("href");
     }
   }
 );
 
-function setGoogle(text) {
-  const param = new URLSearchParams();
-  param.append("q", text);
-  param.append("udm", "web");
-  google.href = destino + param;
-}
-
-function setGoogleImagem(text) {
-  const param = new URLSearchParams();
-  param.append("q", text);
-  param.append("udm", 2);
-  googleImagem.href = destino + param;
-}
-
-function setGoogleVideo(text) {
-  const param = new URLSearchParams();
-  param.append("q", text);
-  param.append("udm", 7);
-  googleVideo.href = destino + param;
-}
-
-function setGoogleShopping(text) {
-  const param = new URLSearchParams();
-  param.append("q", text);
-  param.append("udm", 28);
-  googleShopping.href = destino + param + "#rso";
-}
-
-function setGoogleNoticias(text) {
-  const param = new URLSearchParams();
-  param.append("q", text);
-  param.append("tbm", "nws");
-  googleNoticias.href = destino + param;
-}
-
-function setGoogleGemini(text) {
-  const param = new URLSearchParams();
-  param.append("q", text);
-  param.append("udm", 50);
-  googleGemini.href = destino + param;
+function gg(icone, label, target) {
+  const a = aBlank(googleIco(icone), label);
+  a.setLink = function setLink(text) {
+    const param = new URLSearchParams();
+    param.append("q", text);
+    param.append("udm", target);
+    google.href = destino + param + "#rso";
+  }
+  return a;
 }
 
 function aBlank(...label) {
   const a = document.createElement("a");
-  a.className = "d-flex"
+  a.className = "d-flex flex-wrap gap-3"
   a.append(...label, linkBlank());
   a.target = "_blank";
   return a;
@@ -108,10 +82,6 @@ function container(...f) {
   div.className = "container py-3";
   div.style.maxWidth = "512px";
   div.append(...f);
-  div.addEventListener(
-    "click",
-    () => { input.focus(); },
-  )
   return div;
 }
 
@@ -155,7 +125,7 @@ function form(...f) {
 
 function googleIco(google) {
   const i = document.createElement("i");
-  i.className = `bi bi-${google} me-3`;
+  i.className = `bi bi-${google}`;
   return i;
 }
 
@@ -164,3 +134,8 @@ function linkBlank() {
   i.className = "bi bi-box-arrow-up-right ms-auto";
   return i;
 }
+
+document.body.addEventListener(
+  "click",
+  () => { input.focus(); },
+);
