@@ -76,7 +76,7 @@ function listGroup(...f) {
 
   for (const i of f) {
     if (i.classList)
-      i.classList.add("list-group-item", "list-group-item-action", "rounded-3", "border-0");
+      i.classList.add("list-group-item", "list-group-item-action", "rounded-5", "border-0", "px-4");
     frag.append(i);
   }
 
@@ -86,7 +86,7 @@ function listGroup(...f) {
 
 function inputSearch() {
   const input = document.createElement("input");
-  input.className = "form-control rounded-3";
+  input.className = "form-control rounded-5 ps-4";
   input.type = "search";
   input.name = "q";
   input.required = true;
