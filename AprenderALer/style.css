@@ -63,3 +63,7 @@
   max-width: 472px;
   margin: auto;
 }
+
+.word-spacingn {
+  word-spacing: 0.3ch;
+}
