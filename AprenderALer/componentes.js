@@ -4,7 +4,7 @@ export function formulario() {
   return (
     Elemento.div({ className: "flex-grow-0" },
       Elemento.textarea({
-        className: "form-control fonte-custom",
+        className: "form-control fonte-custom word-spacingn",
         name: "texto",
         id: "texto",
         rows: 7,
