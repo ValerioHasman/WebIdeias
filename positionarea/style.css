@@ -1,0 +1,88 @@
+.anchor {
+  font-size: 1.8rem;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  background-color: hsl(240 100% 75%);
+  min-width: 50px;
+  min-height: 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 3px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+#position-area-form {
+  top: 0;
+  right: 2px;
+  background-color: rgb(248, 249, 250);
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+  margin: 1rem;
+  position: fixed;
+}
+
+#position-area-form div:last-child {
+  margin-top: 10px;
+}
+
+#position-area-form div :last-child {
+  margin-top: 5px;
+}
+
+#writing-mode-form {
+  bottom: 0;
+  left: 2px;
+  writing-mode: horizontal-tb;
+}
+
+#position-area-custom-container {
+  display: none;
+}
+
+.infobox {
+  color: darkblue;
+  background-color: azure;
+  border: 1px solid #ddd;
+  padding: 5px 2px;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.anchor {
+  anchor-name: --myAnchor;
+}
+
+.infobox {
+  position-anchor: --myAnchor;
+  position: fixed;
+  opacity: 0.8;
+  position-area: top left;
+}
+
+select {
+  text-transform: uppercase;
+  padding: .25rem;
+  border-radius: .25rem;
+}
+
+.pre-output {
+  font-size: 1rem;
+  margin-left: .5rem;
+  user-select: all;
+}
