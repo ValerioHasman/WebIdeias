@@ -1,5 +1,3 @@
-const infobox = document.querySelector(".infobox");
-
 const combinacoes = [
   "block-end",
   "block-end center",
@@ -233,21 +231,24 @@ const combinacoes = [
 
 combinacoes.sort();
 
+const infobox = document.querySelector(".infobox");
 const positionAreaForm = document.querySelector("#position-area-form");
-const selectElem0 = document.querySelector("select");
+const selectElem = document.querySelector("select");
 const out = document.querySelector(".pre-output");
 
 positionAreaForm.addEventListener("submit", (e) => { e.preventDefault(); });
 
-selectElem0.addEventListener("change", definePositionArea);
+selectElem.addEventListener("change", definePositionArea);
 
 function definePositionArea() {
-  infobox.style.positionArea = selectElem0.value;
+  infobox.style.positionArea = selectElem.value;
   out.innerHTML = infobox.style.positionArea;
 }
 
 for (const nome of combinacoes) {
-  selectElem0.append(
+  selectElem.append(
     new Option(nome, nome)
   )
 }
+
+definePositionArea();

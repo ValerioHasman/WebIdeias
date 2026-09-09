@@ -61,18 +61,31 @@ const lista = [
   {
     "nome": "Pesquisa no Google",
     "pasta": "pesquisa-no-google"
+  },
+  {
+    "nome": "Position Area",
+    "pasta": "positionarea"
+  },
+  {
+    "nome": "Meus modais BS",
+    "pasta": "meus-modais-bs"
+  },
+  {
+    "nome": "Leitor CSV/",
+    "pasta": "../leitor-csv"
   }
 ];
 
 document.querySelector("section")
   .append(
     Elemento.div(
-      { className: "d-flex flex-wrap gap-3" },
+      { className: "row g-3 flex-wrap" },
       ...lista.map(
-        item => (
+        item => Elemento.div(
+          { className: "col-12 col-sm-6 col-md-4" },
           Elemento.a(
             {
-              className: "bg-body-tertiary d-flex p-3 rounded-4 text-body text-decoration-none",
+              className: "bg-body-tertiary d-flex p-2 rounded-3 text-body text-decoration-none",
               href: `./${item.pasta}/`
             },
             Elemento.img({
