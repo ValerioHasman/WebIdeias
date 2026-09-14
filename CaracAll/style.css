@@ -7,11 +7,6 @@ input[type=number]::-webkit-inner-spin-button {
   appearance: none;
 }
 
-input#inpcaracAll {
-  width: 6ch;
-  text-align: center;
-}
-
 .botao-largura-fixa {
   width: 125px;
 }

@@ -29,3 +29,21 @@ body {
 .text-break-spaces {
   white-space: break-spaces;
 }
+
+.ancorado-select-ao-botao {
+  user-select: none;
+  margin: 0;
+  min-width: min-content;
+  max-height: -webkit-fill-available;
+  max-width: -webkit-fill-available;
+  position: fixed;
+  inset: unset;
+  position-area: span-right bottom;
+  position-try-order: most-height;
+  position-try-fallbacks:
+    span-left bottom,
+    span-right top,
+    span-left top,
+    bottom,
+    top;
+}

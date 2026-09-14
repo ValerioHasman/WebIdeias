@@ -105,6 +105,7 @@ function atribuirProps(nvsProps, paraObj, pai) {
     } else {
       try {
         esteElmt[prop] = nvsProps[prop];
+        if (prop == "for") esteElmt.setAttribute(prop, nvsProps[prop]);
         if (prop == "value") esteElmt.defaultValue = nvsProps[prop];
         if (prop == "checked") esteElmt.defaultChecked = nvsProps[prop];
       } catch (err) {

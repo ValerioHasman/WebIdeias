@@ -1,3 +1,5 @@
+import aplicarPopOverAoSelect from "./aplicarPopOverAoSelect.js";
+
 const combinacoes = [
   "block-end",
   "block-end center",
@@ -240,15 +242,28 @@ positionAreaForm.addEventListener("submit", (e) => { e.preventDefault(); });
 
 selectElem.addEventListener("change", definePositionArea);
 
-function definePositionArea() {
-  infobox.style.positionArea = selectElem.value;
-  out.innerHTML = infobox.style.positionArea;
-}
+
+const maper = new Map();
 
 for (const nome of combinacoes) {
   selectElem.append(
     new Option(nome, nome)
   )
 }
+
+const [s, pop] = aplicarPopOverAoSelect(selectElem);
+document.body.append(pop);
+
+function definePositionArea() {
+  infobox.style.positionArea = selectElem.value;
+  out.innerHTML = infobox.style.positionArea;
+
+  const info = infobox.getBoundingClientRect();
+
+  maper.set(selectElem.value, { x: info.x, y: info.y });
+}
+
+console.log(maper)
+
 
 definePositionArea();

@@ -11,19 +11,28 @@ document.body.append(
         _.div({ className: "col" },
           _.h1({ className: "m-0" }, "CaracAll")
         ),
+        _.div({ className: "col-auto" },
+          _.div({ className: "form-check form-switch user-select-none mt-2 me-2" },
+            _.input({ className: "form-check-input", role: "switch", type: "checkbox", id: "inputApenasTexto" }),
+            _.label({ className: "form-check-label", for: "inputApenasTexto" }, "Emojis como texto")
+          ),
+        ),
         _.form({ className: "col-auto", onsubmit: recalcularPara },
-          _.input({
-            id: "inpcaracAll",
-            name: "caracAll",
-            className: "form-control",
-            type: "text",
-            inputMode: "search",
-            placeholder: "…",
-            value: String.fromCodePoint(128570),
-            maxLength: 2,
-            minLength: 1,
-            required: true,
-          })
+          _.div({ className: "d-flex gap-1" },
+            _.input({
+              id: "inpcaracAll",
+              name: "caracAll",
+              className: "form-control text-center",
+              type: "text",
+              inputMode: "search",
+              placeholder: "…",
+              value: String.fromCodePoint(128570),
+              maxLength: 4,
+              minLength: 1,
+              required: true,
+            }),
+            _.button({ className: "btn btn-success" }, "🔎︎")
+          )
         )
       )
     ),
@@ -73,10 +82,10 @@ document.body.append(
               id: "enviar"
             }, "Exibir")
           ),
-          _.div({ className: "col d-grid" },
+          _.div({ className: "col-1 d-grid" },
             _.button({
               className: "btn btn-secondary",
-              onclick: remover,
+              onclick: () => { container.replaceChildren(); },
               type: "button"
             }, "Limpar")
           ),
@@ -94,6 +103,9 @@ document.body.append(
   )
 );
 
+const container = document.getElementById("container");
+const inputApenasTexto = document.getElementById("inputApenasTexto");
+
 function mais() {
   inpQuantidade.value = Number.parseInt(inpQuantidade.value) + Number.parseInt(inpIntervalo.value);
 }
@@ -106,7 +118,11 @@ function menos() {
 function recalcularPara(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
-  exibir(formData.get("caracAll").codePointAt(), 0);
+  const modoTexto = inputApenasTexto.checked ? "\uFE0E" : "";
+  container.replaceChildren(
+    _.div({ className: "fs-4 user-select-all" }, formData.get("caracAll").codePointAt()),
+    _.div({ className: "fs-4 user-select-all" }, formData.get("caracAll") + modoTexto)
+  )
 }
 
 /** @param {PointerEvent} event */
@@ -138,13 +154,14 @@ async function copiarParaAreaDeTransferencia(texto) {
 function exibir(next = 0, intervalo = 0) {
   next = Number.parseInt(next);
   intervalo = Number.parseInt(intervalo);
-  remover();
+  const modoTexto = inputApenasTexto.checked ? "\uFE0E" : "";
+  const frags = document.createDocumentFragment();
   for (let i = next; i <= (next + intervalo) && i < 1114112; i++) {
-    const caractere = String.fromCodePoint(i);
-    container.append(
+    const caractere = String.fromCodePoint(i) + modoTexto;
+    frags.append(
       _.button(
         {
-          className: "btn btn-outline-secondary rounded-3 border-0 botao-largura-fixa",
+          className: "btn btn-sm btn-outline-secondary rounded-3 border-0 botao-largura-fixa",
           onclick: async () => {
             const copiado = await copiarParaAreaDeTransferencia(caractere);
             if (copiado) {
@@ -167,6 +184,7 @@ function exibir(next = 0, intervalo = 0) {
       )
     )
   }
+  container.replaceChildren(frags);
 }
 
 function remover() {
@@ -174,7 +192,7 @@ function remover() {
     text.remove();
   }
   if (container.childNodes.length > 0) {
-    remover();
+
   }
 }
 
