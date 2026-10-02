@@ -27,7 +27,7 @@ document.body.append(
               inputMode: "search",
               placeholder: "…",
               value: String.fromCodePoint(128570),
-              maxLength: 4,
+              maxLength: 16,
               minLength: 1,
               required: true,
             }),
@@ -82,7 +82,7 @@ document.body.append(
               id: "enviar"
             }, "Exibir")
           ),
-          _.div({ className: "col-1 d-grid" },
+          _.div({ className: "col-auto d-grid" },
             _.button({
               className: "btn btn-secondary",
               onclick: () => { container.replaceChildren(); },
@@ -118,10 +118,46 @@ function menos() {
 function recalcularPara(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
-  const modoTexto = inputApenasTexto.checked ? "\uFE0E" : "";
+  const modoTexto = inputApenasTexto.checked ? "\uFE0E" : "\uFE0F";
+  const caracAll = formData.get("caracAll");
+
+  const frags = Array.from(caracAll);
+
+  const char = frags[0];
+
+  const charModoTexto = char + modoTexto;
+
+  const charModoTextoFrag = Array.from(charModoTexto);
+
   container.replaceChildren(
-    _.div({ className: "fs-4 user-select-all" }, formData.get("caracAll").codePointAt()),
-    _.div({ className: "fs-4 user-select-all" }, formData.get("caracAll") + modoTexto)
+    _.div(
+      { className: "d-flex flex-column gap-2" },
+      _.div(
+        { className: "fs-4 user-select-all bg-body-tertiary px-2 py-1 rounded-3" },
+        char.codePointAt()
+      ),
+      _.div(
+        { className: "fs-4 user-select-all bg-body-tertiary px-2 py-1 rounded-3" },
+        charModoTexto
+      ),
+      _.div(
+        { className: "fs-4 user-select-all bg-body-tertiary px-2 py-1 rounded-3" },
+        charModoTextoFrag.map(c => `\\u{${c.codePointAt().toString(16)}}`).join("")
+      ),
+      _.div(
+        { className: "fs-4 user-select-all bg-body-tertiary px-2 py-1 rounded-3" },
+        caracAll
+      ),
+      _.div(
+        { className: "fs-4 user-select-all bg-body-tertiary px-2 py-1 rounded-3" },
+        frags.map(c => `\\u{${c.codePointAt().toString(16)}}`).join("")
+      ),
+      _.div(
+        { className: "fs-4 user-select-all bg-body-tertiary px-2 py-1 rounded-3" },
+        frags.map(c => c).join(" + ")
+      )
+
+    )
   )
 }
 
