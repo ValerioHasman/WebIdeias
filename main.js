@@ -71,6 +71,10 @@ const lista = [
     "pasta": "meus-modais-bs"
   },
   {
+    "nome": "Manda o Pix",
+    "pasta": "manda-o-pix"
+  },
+  {
     "nome": "Leitor CSV/",
     "pasta": "../leitor-csv"
   }

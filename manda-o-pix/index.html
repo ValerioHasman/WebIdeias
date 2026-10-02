@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt" class="d-flex h-100 ">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content, user-scalable=no" />
+  <title>Copiar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
+  <script type="module" src="main.js"></script>
+</head>
+
+<body class="m-2 d-flex flex-column flex-grow-1">
+  <form method="get" class="d-flex m-auto d-flex flex-column flex-grow-1 gap-2">
+    <div class="col flex-grow-1">
+      <textarea name="mnsgm" class="form-control font-monospace rounded-4" cols="55" style="height:stretch;resize:none;" autofocus></textarea>
+    </div>
+    <div class="col-auto d-flex flex-wrap gap-2 justify-content-end">
+      <div class="col-auto rmv">
+        <a target="_blank" class="btn btn-primary px-4 rounded-4 ms-auto">
+          Abrir
+          <i class="ms-3 bi bi-box-arrow-up-right"></i>
+        </a>
+      </div>
+      <div class="col-auto ">
+        <button type="button" class="btn btn-primary px-4 rounded-4 ms-auto">
+          Copiar
+          <i class="ms-3 bi bi-copy"></i>
+        </button>
+      </div>
+      <div class="col-auto rmv">
+        <button type="submit" class="btn btn-primary px-4 rounded-4 ms-auto">
+          Atualizar
+          <i class="ms-3 bi bi-arrow-repeat"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+</body>
+
+</html>
