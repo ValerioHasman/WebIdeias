@@ -32,7 +32,7 @@ function atualizar() {
   const sp = new URLSearchParams(location.search);
   sp.set("mnsgm", textarea.value);
   sp.set("blq", true);
-  a.href = location.origin + "/?" + sp;
+  a.href = location.origin + location.pathname + "/?" + sp;
 }
 
 textarea.addEventListener("change", atualizar);
