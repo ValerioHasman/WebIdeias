@@ -5,45 +5,58 @@ import Elemento, { execute } from "../Elemento.js";
  */
 export default function aplicarPopOverAoSelect(select, { autoSort = true } = {}) {
 
-  const options = Array.from(select.options)
-    .filter(opt => !(opt.hidden || opt.disabled));
+  function carregarOpcoesSort(containerList) {
+    const options = Array.from(containerList.querySelectorAll('&>option:not([hidden]):not(:disabled)'));
+    const optgroups = Array.from(containerList.querySelectorAll('&>optgroup:not([hidden]):not(:disabled)'));
+    const frag = document.createDocumentFragment();
 
-  if (autoSort) {
     options.sort(
       (a, b) => {
-
-        const limpa = limparString(a.text);
-        const limpb = limparString(b.text);
-
-        if (limpa > limpb) return 1;
-        if (limpa < limpb) return -1;
-        return 0;
+        return a.text.localeCompare(b.text, "pt-BR", { sensitivity: 'base' });
       }
     );
 
-    select.append(...options);
+    optgroups.sort(
+      (a, b) => {
+        return a.label.localeCompare(b.label, "pt-BR", { sensitivity: 'base' });
+      }
+    );
+
+    for (const item of options) {
+      frag.append(botaoSelecionavel(item));
+    }
+
+    for (const item of optgroups) {
+      frag.append(
+        objetoAgrupador(
+          item,
+          carregarOpcoesSort(item)
+        )
+      );
+    }
+
+    return frag;
   }
 
-  const filhosDiretos = select.querySelectorAll("&>*");
-
-  function carregarOpcoes(itens) {
+  function carregarOpcoesBasico(containerList) {
+    const itens = Array.from(containerList.querySelectorAll('&>*'));
     const frag = document.createDocumentFragment();
+
     for (const item of itens) {
       if (!(item.hidden || item.disabled)) {
         if (item instanceof HTMLOptionElement) {
-          frag.append(botaoSelecionavel(item))
-        }
-        if (item instanceof HTMLOptGroupElement) {
+          frag.append(botaoSelecionavel(item));
+        } else if (item instanceof HTMLOptGroupElement || item instanceof HTMLSelectElement) {
           frag.append(
-            Elemento.div(
-              { className: "list-group ps-2" },
-              Elemento.div({ className: "fw-bold small list-group-item border-0 py-1" }, item.label),
-              carregarOpcoes(item.querySelectorAll("&>*"))
+            objetoAgrupador(
+              item,
+              carregarOpcoesBasico(item)
             )
-          )
+          );
         }
       }
     }
+
     return frag;
   }
 
@@ -74,9 +87,9 @@ export default function aplicarPopOverAoSelect(select, { autoSort = true } = {})
       inputSearch
     ),
     Elemento.div(
-      { className: "list-group select-pai" },
+      { className: "list-group select-pai mt-2" },
       defineControles(
-        carregarOpcoes(filhosDiretos)
+        autoSort ? carregarOpcoesSort(select) : carregarOpcoesBasico(select)
       )
     )
   );
@@ -236,4 +249,16 @@ function focarNaDirecao(botao, botoes, passo) {
   }
 
   return false;
+}
+
+/**
+ * @param {HTMLOptGroupElement} item
+ * @param {DocumentFragment} itens
+ */
+function objetoAgrupador(item, itens) {
+  return Elemento.div(
+    { className: "list-group ps-2" },
+    Elemento.div({ className: "fw-bold small list-group-item border-0 py-1" }, item.label),
+    itens
+  )
 }
