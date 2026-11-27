@@ -75,8 +75,12 @@ const lista = [
     "pasta": "copiar"
   },
   {
-    "nome": "Leitor CSV/",
+    "nome": "Leitor CSV",
     "pasta": "../leitor-csv"
+  },
+  {
+    "nome": "Search Highlight",
+    "pasta": "highlights"
   }
 ];
 
